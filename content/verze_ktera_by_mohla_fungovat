@@ -1,0 +1,321 @@
+Moje stara verze zlepsena pomoci chat-gpt
+
+/*Public proměnné*/
+let c1_real = 0; //číslo v textovém poli (průměr tyče)
+let a_real = ""; //název jednoho z druhů (Garnýž, Tunýlek, Nasazení)
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const checkboxes_druhrolety = document.querySelectorAll('.wrapper-druhrolety .switch-toggle');
+    //garnyz
+    const checkboxes_mistoprogarnyz = document.querySelectorAll('.wrapper-umistenigarnyze .switch-toggle');
+    const checkboxes_mistozatemnenigarnyz = document.querySelectorAll('.wrapper-mistozatemneni-garnyz .switch-toggle');
+    const checkboxes_stupenzastineni = document.querySelectorAll('.wrapper-stupenzastineni .switch-toggle');
+    //nasazeni
+
+    //tunylek
+
+    let a1 = false; //garnyž
+    let a2 = false; //nasazeni
+    let a3 = false; //tunylek
+
+    let b1 = false; //Stěna
+    let b2 = false; //Strop
+
+    let d1 = false; //Okno
+    let d2 = false; //Balkónové dveře
+    let d3 = false; //Dveře
+
+    let h1 = false; //Poloprůhledná
+    let h2 = false; //Poloprůsvitná
+    let h3 = false; //Zatemňovací
+
+
+    checkboxes_druhrolety.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                // Uncheck other checkboxes
+                checkboxes_druhrolety.forEach(cb => {
+                    if (cb !== checkbox && cb.checked) {
+                        cb.checked = false;
+                    }
+                });
+
+                // Set the appropriate variable to true
+                switch (checkbox.id) {
+                    case 'garnyz':
+                        a1 = true;
+                        a2 = false;
+                        a3 = false;
+                        break;
+                    case 'nasazeni':
+                        a2 = true;
+                        a1 = false;
+                        a3 = false;
+                        break;
+                    case 'tunylek':
+                        a3 = true;
+                        a1 = false;
+                        a2 = false;
+                        break;
+                }
+            } else {
+                // TODO: CO JE TOHLE (POTREBUJEME TO??)
+                switch (checkbox.id) {
+                    case 'garnyz':
+                        a1 = false;
+                        break;
+                    case 'nasazeni':
+                        a2 = false;
+                        break;
+                    case 'tunylek':
+                        a3 = false;
+                        break;
+                }
+            }
+            /*PODMINKY PO STISKNUTI TLACITEK*/
+
+            if (a1){
+                /*ZOBRAZOVÁNÍ DALŠÍCH MENU PO ZVOLENÍ DRUHU ROLETY*/
+                const wrapper_umistenigarnyze = document.querySelector('.wrapper-umistenigarnyze');
+                wrapper_umistenigarnyze.style.display = 'flex';
+
+                const wrapper_mistozatemneni_garnyz  = document.querySelector('.wrapper-mistozatemneni-garnyz');
+                wrapper_mistozatemneni_garnyz.style.display = 'flex';
+
+                const wrapper_stupenzastineni = document.querySelector('.wrapper-stupenzastineni');
+                wrapper_stupenzastineni.style.display = 'flex';
+            } else {
+                const wrapper_umistenigarnyze = document.querySelector('.wrapper-umistenigarnyze');
+                wrapper_umistenigarnyze.style.display = 'none';
+
+                const wrapper_mistozatemneni_garnyz  = document.querySelector('.wrapper-mistozatemneni-garnyz');
+                wrapper_mistozatemneni_garnyz.style.display = 'none';
+
+                const wrapper_stupenzastineni = document.querySelector('.wrapper-stupenzastineni');
+                wrapper_stupenzastineni.style.display = 'none';
+            }
+            if (a2){
+                const wrapper_mistozatemneni = document.querySelector('.wrapper-mistozatemneni-nasazeni');
+                wrapper_mistozatemneni.style.display = 'flex';
+            } else {
+                const wrapper_mistozatemneni = document.querySelector('.wrapper-mistozatemneni-nasazeni');
+                wrapper_mistozatemneni.style.display = 'none';
+            }
+            if (a3) {
+                const wrapper_prumertycestunylkem = document.querySelector('.wrapper-prumertycestunylkem');
+                wrapper_prumertycestunylkem.style.display = 'flex';
+            } else {
+                const wrapper_prumertycestunylkem = document.querySelector('.wrapper-prumertycestunylkem');
+                wrapper_prumertycestunylkem.style.display = 'none';
+
+
+            }
+        });
+    });
+
+    checkboxes_mistoprogarnyz.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                checkboxes_mistoprogarnyz.forEach(cb => {
+                    if (cb !== checkbox && cb.checked) {
+                        cb.checked = false;
+                    }
+                });
+
+                switch (checkbox.id){
+                    case 'stena':
+                        b1 = true;
+                        b2 = false;
+                        break;
+
+                    case 'strop':
+                        b1 = false;
+                        b2 = true;
+                        break;
+                }
+            } else {
+                switch (checkbox.id){
+                    case 'stena':
+                        b1 = false;
+                        break;
+
+                    case 'strop':
+                        b2 = false;
+                        break;
+                }
+            }
+        });
+    });
+
+    checkboxes_mistozatemnenigarnyz.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                checkboxes_mistozatemnenigarnyz.forEach(cb => {
+                    if (cb !== checkbox && cb.checked) {
+                        cb.checked = false;
+                    }
+                });
+
+                switch (checkbox.id) {
+                    case 'okno-garnyz':
+                        d1 = true;
+                        d2 = false;
+                        d3 = false;
+                        break;
+
+                    case 'balkonove-dvere-garnyz':
+                        d1 = false;
+                        d2 = true;
+                        d3 = false;
+                        break;
+
+                    case 'dvere-garnyz':
+                        d1 = false;
+                        d2 = false;
+                        d3 = true;
+                        break;
+                }
+            } else {
+                switch (checkbox.id) {
+                    case 'okno-garnyz':
+                        d1 = false;
+                        break;
+
+                    case 'balkonove-dvere-garnyz':
+                        d2 = false;
+                        break;
+
+                    case 'dvere-garnyz':
+                        d3 = false;
+                        break;
+                }
+            }
+        });
+    });
+
+    checkboxes_stupenzastineni.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+                checkboxes_mistozatemnenigarnyz.forEach(cb => {
+                    if (cb !== checkbox && cb.checked) {
+                        cb.checked = false;
+                    }
+                });
+
+                switch (checkbox.id) {
+                    case 'polopruhledna':
+                        h1 = true;
+                        h2 = false;
+                        h3 = false;
+                        break;
+
+                    case 'poloprusvitna':
+                        h1 = false;
+                        h2 = true;
+                        h3 = false;
+                        break;
+
+                    case 'zatemnovaci':
+                        h1 = false;
+                        h2 = false;
+                        h3 = true;
+                        break;
+                }
+            } else {
+                switch (checkbox.id) {
+                    case 'polopruhledna':
+                        h1 = false;
+                        break;
+
+                    case 'poloprusvitna':
+                        h2 = false;
+                        break;
+
+                    case 'zatemnovaci':
+                        h3 = false;
+                        break;
+                }
+            }
+            if (h1){
+
+            } else {
+
+            } if (h2) {
+
+            } else {
+
+            } if (h3) {
+
+            } else {}
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+    /*Button event listener - vytvoření buttonu, co se stane když se stiskne tlačítko, jaký check se stisknul*/
+    const button_submit = document.querySelector('.button-submit');
+    button_submit.addEventListener('click', (event) => {
+        /*Získání Stringu (poté čísla) z textového pole*/
+        const prumertyce = document.getElementById("prumertyce").value.trim();
+        if (!isNaN(prumertyce)){
+            if (parseInt(prumertyce) >= 1 && parseInt(prumertyce) <= 4){
+                let c1 = parseInt(prumertyce);
+                c1_real = c1;
+                console.log(c1);
+            }
+        }
+        /*zobrazení divu shrnutí pro shrnutí formuláře*/
+        const shrnuti = document.querySelector('.wrapper-shrnuti');
+        shrnuti.style.display = 'block';
+        const children = shrnuti.children;
+        for (let i = children.length - 1; i >= 0; i--) {
+            if (children[i].tagName !== 'H3') {
+                shrnuti.removeChild(children[i]);
+            }
+        }
+
+
+        checkboxes_druhrolety.forEach(checkboxi => {
+            if (checkboxi.checked) {
+                a_real = checkboxi.id;
+                const shrnuti = document.querySelector('.wrapper-shrnuti');
+
+
+                //Druh rolety
+                const druh = document.createElement('p');
+                druh.textContent = "Druh: " + a_real;
+                shrnuti.append(druh);
+                switch (checkboxi.id){
+                    case 'garnyz':
+
+                    /*GARNÝŽ*/
+                        break;
+
+                    case 'nasazeni':
+                    /*NASAZENI*/
+                        break;
+
+                    case 'tunylek':
+                        /*TUNÝLEK*/
+                        /*Průměr tyče*/
+                        const prumer_tyce = document.createElement('p');
+                        prumer_tyce.textContent = "Průměr tyče pro navlečení rolety: " + c1_real;
+                        shrnuti.append(prumer_tyce);
+                        /*test*/
+                        const p = document.createElement('p');
+                        p.textContent = "prumer tyce +3: " + (c1_real + 3);
+                        shrnuti.append(p);
+                        break;
+                }
+            }
+        });
+    });
+});
+
