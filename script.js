@@ -1185,6 +1185,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }
     }
   }
+
+  // Add event listener for submit button
+  const submitButton = document.getElementById("submit-button");
+  const summarySection = document.querySelector(".wrapper-shrnuti");
+
+  submitButton.addEventListener("click", () => {
+    summarySection.classList.add("show");
+  });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -1227,6 +1235,49 @@ document.addEventListener("DOMContentLoaded", function () {
             .classList.add("show");
         }
       }
+    });
+  });
+});
+
+// Handle info icons and help previews
+document.addEventListener("DOMContentLoaded", function () {
+  // Get all info icons
+  const infoIcons = document.querySelectorAll(".info-icon");
+
+  // Add click event listener to each info icon
+  infoIcons.forEach((icon) => {
+    icon.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // Get the associated help preview
+      const helpPreview = this.nextElementSibling;
+
+      // Close any other open help previews
+      document.querySelectorAll(".help-preview.active").forEach((preview) => {
+        if (preview !== helpPreview) {
+          preview.classList.remove("active");
+        }
+      });
+
+      // Toggle the current help preview
+      helpPreview.classList.toggle("active");
+    });
+  });
+
+  // Close help preview when clicking the close button or outside
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".info-icon") && !e.target.closest(".help-preview")) {
+      document.querySelectorAll(".help-preview.active").forEach((preview) => {
+        preview.classList.remove("active");
+      });
+    }
+  });
+
+  // Prevent clicks on help preview from closing it
+  document.querySelectorAll(".help-preview").forEach((preview) => {
+    preview.addEventListener("click", function (e) {
+      e.stopPropagation();
     });
   });
 });

@@ -12,13 +12,13 @@
 <!--Pro vše společné na zaačátku-->
 <div class="obalobal">
     <div class="obal">
-        <h1 class="nadisy-mensi">vyberte druh rolety podle zpusobu uchyzeni a montaze: A</h1>
+        <h1 class="nadisy-mensi">(A)Vyberte druh rolety podle zpusobu uchyzeni a montaze:</h1>
     </div>
 </div>
 <div class="wrapper-druhrolety rowrolety">
     <label class="subwrapper zadek" for="garnyz">
         <div class="vlevo">
-            <img src="content/garnyz.png" alt="Garnýž">
+            <img src="content/test1.jpg" alt="Garnýž">
             <label for="garnyz">Garnýž</label>
             <!--
             <div class="helpicon"></div>
@@ -32,7 +32,7 @@
     </label>
     <label class="subwrapper zadek" for="nasazeni">
         <div class="vlevo">
-            <img src="content/nasazeni.png" alt="Nasazení">
+            <img src="content/test2.jpg" alt="Nasazení">
             <label for="nasazeni">Nasazení</label>
         </div>
         <input id="nasazeni" type="checkbox" class="switch-main">
@@ -45,257 +45,394 @@
         <input id="tunylek" type="checkbox" class="switch-main">
     </label>
 </div>
-<!--Možnosti pro GARNÝŽ-->
-<div class="wrapper-umistenigarnyze del" data-custom="wrap">
-        <h2>Kde bude připevněná garnyž? B</h2>
-        <label class="subwrapper" for="stena">
-            <label for="stena">Stěna</label>
-            <input id="stena" type="checkbox" class="switch-toggle">
-        </label>
-        <label class="subwrapper" for="strop">
-            <label for="strop">Strop</label>
-            <input id="strop" type="checkbox" class="switch-toggle">
-        </label>
+
+<div class="choice-containers">
+    <!--Možnosti pro GARNÝŽ-->
+    <div class="wrapper-umistenigarnyze del" data-custom="wrap">
+        <h2>(B) Kde bude připevněná garnyž?</h2>
+        <div class="subwrapper-container">
+            <label class="subwrapper" for="stena">
+                <label for="stena">Stěna</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Garnýž bude připevněna na stěnu nad oknem.</div>
+                <input id="stena" type="checkbox" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="strop">
+                <label for="strop">Strop</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Garnýž bude připevněna na strop.</div>
+                <input id="strop" type="checkbox" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-mistozatemneni-garnyz del" data-custom="wrap">
+        <h2>(D) Co chcete Zatemnit?</h2>
+        <div class="subwrapper-container">
+            <label class="subwrapper" for="okno-garnyz">
+                <label for="okno-garnyz">Okno</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Zatemnění standardního okna.</div>
+                <input id="okno-garnyz" type="checkbox" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="balkonove-dvere-garnyz">
+                <label for="balkonove-dvere-garnyz">Bálkonové dveře / Francouzské okno</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Zatemnění balkónových dveří nebo francouzského okna.</div>
+                <input id="balkonove-dvere-garnyz" type="checkbox" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="dvere-garnyz">
+                <label for="dvere-garnyz">Dveře</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Zatemnění standardních dveří.</div>
+                <input id="dvere-garnyz" type="checkbox" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <!--Kousek z tunylku-->
+    <div class="wrapper-prumertycestunylkem del" data-custom="wrap">
+        <h2>(C) Zadejte průměr tyče pro navlečení rolety s tunýlkem.</h2>
+        <div class="subwrapper-container">
+            <label class="subwrapper" for="prumertyce">
+                <label for="prumertyce">Průměr tyče</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Zadejte průměr tyče v milimetrech pro správné navlečení rolety.</div>
+                <input id="prumertyce" type="text">
+            </label>
+        </div>
+    </div>
+
+    <!--Kousek z nasazení který zde musí být aby to šlo správně po sobě-->
+    <div class="wrapper-mistozatemneni-nasazeni del" data-custom="wrap">
+        <h2>(D) Co chcete Zatemnit?</h2>
+        <div class="subwrapper-container">
+            <label class="subwrapper" for="okno-nasazeni">
+                <label for="okno-nasazeni">Okno</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Zatemnění standardního okna.</div>
+                <input id="okno-nasazeni" type="checkbox" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="balkonove-dvere-nasazeni">
+                <label for="balkonove-dvere-nasazeni">Bálkonové dveře / Francouzské okno</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Zatemnění balkónových dveří nebo francouzského okna.</div>
+                <input id="balkonove-dvere-nasazeni" type="checkbox" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="dvere-nasazeni">
+                <label for="dvere-nasazeni">Dveře</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Zatemnění standardních dveří.</div>
+                <input id="dvere-nasazeni" type="checkbox" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-velikostzavesenhouchytu del" data-custom="wrap">
+        <h2>(E) Velikost závěsného úchytu na okno / balkonové dveře - standartní rozměry</h2>
+        <div class="subwrapper-container">
+            <label class="subwrapper" for="vlastni-check">
+                <label for="vlastni-check">Vlastní</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Zadejte vlastní rozměr závěsného úchytu.</div>
+                <input type="checkbox" id="vlastni-check" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="1pul">
+                <label for="1pul">1,5</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Standardní rozměr 1,5 cm.</div>
+                <input type="checkbox" id="1pul" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="2">
+                <label for="2">2</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Standardní rozměr 2 cm.</div>
+                <input type="checkbox" id="2" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="2pul">
+                <label for="2pul">2,5</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Standardní rozměr 2,5 cm.</div>
+                <input type="checkbox" id="2pul" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-velikostzavesnehouchytu-dvere" data-custom="wrap">
+        <h2>(F) Velikost závěsného úchytu na dveře - standartní rozměry</h2>
+        <div class="subwrapper-container">
+            <label class="subwrapper" for="vlastni-check-dvere">
+                <label for="vlastni-check-dvere">Vlastní</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Zadejte vlastní rozměr závěsného úchytu pro dveře.</div>
+                <input type="checkbox" id="vlastni-check-dvere" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="1celasedm">
+                <label for="1celasedm">1,7</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Standardní rozměr 1,7 cm pro dveře.</div>
+                <input type="checkbox" id="1celasedm" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="4celatri">
+                <label for="4celatri">4,3</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Standardní rozměr 4,3 cm pro dveře.</div>
+                <input type="checkbox" id="4celatri" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-velikostuchytu-vlastni" data-custom="wrap">
+        <h2>(G) Velikost závěsného úchytu - zakázková výroba</h2>
+        <div class="subwrapper-container">
+            <label class="subwrapper" for="vlastni">
+                <label for="vlastni">Vlastní</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Zadejte přesný rozměr pro zakázkovou výrobu úchytu.</div>
+                <input type="text" id="vlastni" class="text-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-stupenzastineni del" data-custom="wrap">
+        <h2>(H) Zvolte stupeň zastínění, který bude roleta poskytovat</h2>
+        <div class="subwrapper-container">
+            <label class="subwrapper" for="polopruhledna">
+                <label for="polopruhledna">Poloprůhledná</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Propouští více světla, vhodná pro denní použití.</div>
+                <input id="polopruhledna" type="checkbox" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="poloprusvitna">
+                <label for="poloprusvitna">Poloprůsvitná</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Střední stupeň zastínění, kompromis mezi průhledností a zatemněním.</div>
+                <input id="poloprusvitna" type="checkbox" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="zatemnovaci">
+                <label for="zatemnovaci">Zatemňovací</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Maximální zatemnění, vhodné pro ložnice a místnosti vyžadující tmu.</div>
+                <input id="zatemnovaci" type="checkbox" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-designgarnyze del" data-custom="wrap">
+        <h2>(I) Design Garnýže</h2>
+        <div class="subwrapper-container">
+            <label class="subwrapper sub-calounena" for="calounena">
+                <label for="calounena">Čalouněná</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Plně čalouněná garnýž pro elegantní vzhled.</div>
+                <input id="calounena" type="checkbox" class="switch-toggle">
+            </label>
+            <label class="subwrapper sub-castecne-calounena" for="castecne-calounena">
+                <label for="castecne-calounena">Částečně čalouněná</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Částečně čalouněná garnýž pro moderní vzhled.</div>
+                <input id="castecne-calounena" type="checkbox" class="switch-toggle">
+            </label>
+            <label class="subwrapper sub-roleta-z-jednoho-kusu" for="roleta-z-jednoho-kusu">
+                <label for="roleta-z-jednoho-kusu">Roleta z jednoho kusu</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Jednodílná roleta bez čalounění.</div>
+                <input id="roleta-z-jednoho-kusu" type="checkbox" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-vyberlatky del" data-custom="wrap">
+        <h2>(K) Výběr látky pro čalounění garnýže</h2>
+        <div class="subwrapper-container">
+            <label class="subwrapper" for="bo90-calouneni">
+                <label for="bo90-calouneni">BO90</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Standardní látka pro čalounění garnýže.</div>
+                <input type="checkbox" id="bo90-calouneni" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="bo100-calouleni">
+                <label for="bo100-calouleni">BO100</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Prémiová látka pro čalounění garnýže.</div>
+                <input type="checkbox" id="bo100-calouleni" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-typretizku del" data-custom="wrap">
+        <h2>(L) Zvolte typ řetízku pro ovládání rolety na garnýži</h2>
+        <div class="subwrapper-container">
+            <label class="subwrapper" for="plastbily">
+                <label for="plastbily">Plast bílý</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Bílý plastový řetízek pro standardní použití.</div>
+                <input type="checkbox" id="plastbily" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="kovleskly">
+                <label for="kovleskly">Kov lesklý</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Lesklý kovový řetízek pro elegantní vzhled.</div>
+                <input type="checkbox" id="kovleskly" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-typrolety del" data-custom="wrap">
+        <h2>(M) Jaký bude typ rolety?</h2>
+        <div class="subwrapper-container">
+            <label class="subwrapper sub-sita-s-tunylky" for="sitastunylky">
+                <label for="sitastunylky">Šitá s tunýlky</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Roleta s tunýlky pro lepší manipulaci a vzhled.</div>
+                <input type="checkbox" id="sitastunylky" class="switch-toggle">
+            </label>
+            <label class="subwrapper sub-sita-bez-vystuh" for="sitabezvystuh">
+                <label for="sitabezvystuh">Šitá bez výstuh</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Jednoduchá roleta bez výstuh.</div>
+                <input type="checkbox" id="sitabezvystuh" class="switch-toggle">
+            </label>
+            <label class="subwrapper sub-sezehlena" for="sezehlena">
+                <label for="sezehlena">Sežehlená</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Roleta se sežehlenými záhyby pro moderní vzhled.</div>
+                <input type="checkbox" id="sezehlena" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-rubovalatka-zatemnovaci del" data-custom="wrap">
+        <h2>(N) Výběr rubové látky sežehlené zatemňovací rolety</h2>
+        <div class="subwrapper-container">
+            <label class="subwrapper" for="rubova-biloseda-bo90">
+                <label for="rubova-biloseda-bo90">BO90 bílo-šedá</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Bílo-šedá rubová látka pro lehké zatemnění.</div>
+                <input type="checkbox" id="rubova-biloseda-bo90" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="rubova-svetleseda-bo90">
+                <label for="rubova-svetleseda-bo90">BO90 světle šedá</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Světle šedá rubová látka pro střední zatemnění.</div>
+                <input type="checkbox" id="rubova-svetleseda-bo90" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="rubova-seda-bo90">
+                <label for="rubova-seda-bo90">BO90 šedá</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Šedá rubová látka pro silnější zatemnění.</div>
+                <input type="checkbox" id="rubova-seda-bo90" class="switch-toggle">
+            </label>
+            <label class="subwrapper" for="rubova-cernoseda-bo90">
+                <label for="rubova-cernoseda-bo90">BO90 černo-šedá</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Černo-šedá rubová látka pro maximální zatemnění.</div>
+                <input type="checkbox" id="rubova-cernoseda-bo90" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-licovalatka-zatemnovaci del" data-custom="wrap">
+        <h2>(P) Výběr lícové látky sežehlené zatemňovací rolety</h2>
+        <div class="subwrapper-container">
+            <label for="hneda-lic" class="subwrapper">
+                <label for="hneda-lic">Polyester / vzor potisk - hnědá</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Hnědá lícová látka s potiskem pro teplý vzhled.</div>
+                <input type="checkbox" id="hneda-lic" class="switch-toggle">
+            </label>
+            <label for="seda-lic" class="subwrapper">
+                <label for="seda-lic">Polyester / vzor potisk - šedá</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Šedá lícová látka s potiskem pro moderní vzhled.</div>
+                <input type="checkbox" id="seda-lic" class="switch-toggle">
+            </label>
+            <label for="bezova-lic" class="subwrapper">
+                <label for="bezova-lic">Polyester / vzor potisk - béžová</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Béžová lícová látka s potiskem pro světlý vzhled.</div>
+                <input type="checkbox" id="bezova-lic" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-vyberlatky-polopruhlednerolety del" data-custom="wrap">
+        <h2>(O) Výběr látky poloprůhledné rolety</h2>
+        <div class="subwrapper-container">
+            <label for="voalseda" class="subwrapper">
+                <label for="voalseda">Voal - Šedá</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Šedý voal pro jemné zastínění.</div>
+                <input type="checkbox" id="voalseda" class="switch-toggle">
+            </label>
+            <label for="voalbezova" class="subwrapper">
+                <label for="voalbezova">Voal - Béžová</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Béžový voal pro světlé zastínění.</div>
+                <input type="checkbox" id="voalbezova" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-vyberlatky-poloprusvitnerolety del" data-custom="wrap">
+        <h2>(R) Výběr látky poloprůsvitné rolety</h2>
+        <div class="subwrapper-container">
+            <label for="hneda" class="subwrapper">
+                <label for="hneda">Polyester / Vzor potisk - hnědá</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Hnědá poloprůsvitná látka s potiskem.</div>
+                <input type="checkbox" id="hneda" class="switch-toggle">
+            </label>
+            <label for="seda" class="subwrapper">
+                <label for="seda">Polyester / Vzor potisk - šedá</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Šedá poloprůsvitná látka s potiskem.</div>
+                <input type="checkbox" id="seda" class="switch-toggle">
+            </label>
+            <label for="bezova" class="subwrapper">
+                <label for="bezova">Polyester / Vzor potisk - béžová</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Béžová poloprůsvitná látka s potiskem.</div>
+                <input type="checkbox" id="bezova" class="switch-toggle">
+            </label>
+        </div>
+    </div>
+
+    <div class="wrapper-vyberlatky-zatemnovacirolety del" data-custom="wrap">
+        <h2>(Q) Výběr látky zatemňovací rolety</h2>
+        <div class="subwrapper-container">
+            <label for="bo90-zatemnovaci" class="subwrapper">
+                <label for="bo90-zatemnovaci">BO90</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Standardní zatemňovací látka BO90.</div>
+                <input type="checkbox" id="bo90-zatemnovaci" class="switch-toggle">
+            </label>
+            <label for="bo100-zatemnovaci" class="subwrapper">
+                <label for="bo100-zatemnovaci">BO100</label>
+                <div class="info-icon"></div>
+                <div class="help-preview">Prémiová zatemňovací látka BO100.</div>
+                <input type="checkbox" id="bo100-zatemnovaci" class="switch-toggle">
+            </label>
+        </div>
+    </div>
 </div>
 
-<div class="wrapper-mistozatemneni-garnyz del" data-custom="wrap">
-    <h2>Co chcete Zatemnit? D</h2>
-    <label class="subwrapper" for="okno-garnyz">
-        <label for="okno-garnyz">Okno</label>
-        <input id="okno-garnyz" type="checkbox" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="balkonove-dvere-garnyz">
-        <label for="balkonove-dvere-garnyz">Bálkonové dveře / Francouzské okno</label>
-        <input id="balkonove-dvere-garnyz" type="checkbox" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="dvere-garnyz">
-        <label for="dvere-garnyz">Dveře</label>
-        <input id="dvere-garnyz" type="checkbox" class="switch-toggle">
-    </label>
-</div>
-<!--Kousek z tunylku-->
-<div class="wrapper-prumertycestunylkem del" data-custom="wrap">
-    <h2>Zadejte průměr tyče pro navlečení rolety s tunýlkem.</h2>
-    <label class="subwrapper" for="prumertyce">
-        <label for="prumertyce">Průměr tyče</label>
-        <input id="prumertyce" type="text">
-    </label>
-</div>
-
-<!--Kousek z nasazení který zde musí být aby to šlo správně po sobě-->
-<div class="wrapper-mistozatemneni-nasazeni del" data-custom="wrap">
-    <h2>Co chcete Zatemnit? D_nasazeni (take d jen pro nasazeni)</h2>
-    <label class="subwrapper" for="okno-nasazeni">
-        <label for="okno-nasazeni">Okno</label>
-        <input id="okno-nasazeni" type="checkbox" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="balkonove-dvere-nasazeni">
-        <label for="balkonove-dvere-nasazeni">Bálkonové dveře / Francouzské okno</label>
-        <input id="balkonove-dvere-nasazeni"  type="checkbox" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="dvere-nasazeni">
-        <label for="dvere-nasazeni">Dveře</label>
-        <input id="dvere-nasazeni" type="checkbox" class="switch-toggle">
-    </label>
-</div>
-<div class="wrapper-velikostzavesenhouchytu del" data-custom="wrap">
-    <h2>Velikost závěsného úchytu na okno / balkonové dveře - standartní rozměry E</h2>
-    <label class="subwrapper" for="vlastni-check">
-        <label for="vlastni-check">Vlastní</label>
-        <input type="checkbox" id="vlastni-check" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="1pul">
-        <label for="1pul">1,5</label>
-        <input type="checkbox" id="1pul" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="2">
-        <label for="2">2</label>
-        <input type="checkbox" id="2" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="2pul">
-        <label for="2pul">2,5</label>
-        <input type="checkbox" id="2pul" class="switch-toggle">
-    </label>
-</div>
-<div class="wrapper-velikostzavesnehouchytu-dvere" data-custom="wrap">
-    <h2>Velikost závěsného úchytu na dveře - standartní rozměry F</h2>
-    <label class="subwrapper" for="vlastni-check-dvere">
-        <label for="vlastni-check-dvere">Vlastní</label>
-        <input type="checkbox" id="vlastni-check-dvere" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="1celasedm">
-        <label for="1celasedm">1,7</label>
-        <input type="checkbox" id="1celasedm" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="4celatri">
-        <label for="4celatri">4,3</label>
-        <input type="checkbox" id="4celatri" class="switch-toggle">
-    </label>
-</div>
-<div class="wrapper-velikostuchytu-vlastni" data-custom="wrap">
-    <h2>Velikost závěsného úchytu - zakázková výroba F1 + E1 (v excelu G)</h2>
-    <label class="subwrapper" for="vlastni">
-        <label for="vlastni">Vlastní</label>
-        <input type="text" id="vlastni" class="text-toggle">
-    </label>
-</div>
-<!--XXXXXXXXXXXXX-->
-<div class="wrapper-stupenzastineni del" data-custom="wrap">
-    <h2>Zvolte stupeň zastínění, který bude roleta poskytovat H</h2>
-    <label class="subwrapper" for="polopruhledna">
-        <label for="polopruhledna">Poloprůhledná</label>
-        <input id="polopruhledna" type="checkbox" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="poloprusvitna">
-        <label for="poloprusvitna">Poloprůsvitná</label>
-        <input id="poloprusvitna" type="checkbox" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="zatemnovaci">
-        <label for="zatemnovaci">Zatemňovací</label>
-        <input id="zatemnovaci" type="checkbox" class="switch-toggle">
-    </label>
-</div>
-
-<div class="wrapper-designgarnyze del" data-custom="wrap">
-    <h2>Design Garnýže I</h2>
-    <label class="subwrapper sub-calounena" for="calounena">
-        <label for="calounena">Čalouněná</label>
-        <input id="calounena" type="checkbox" class="switch-toggle">
-    </label>
-    <label class="subwrapper sub-castecne-calounena" for="castecne-calounena">
-        <label for="castecne-calounena">Částečně čalouněná</label>
-        <input id="castecne-calounena" type="checkbox" class="switch-toggle">
-    </label>
-    <label class="subwrapper sub-roleta-z-jednoho-kusu" for="roleta-z-jednoho-kusu">
-        <label for="roleta-z-jednoho-kusu">Roleta z jednoho kusu</label>
-        <input id="roleta-z-jednoho-kusu" type="checkbox" class="switch-toggle">
-    </label>
-</div>
-
-<div class="wrapper-vyberlatky del" data-custom="wrap">
-    <h2>Výběr látky pro čalounění garnýže K</h2>
-    <label class="subwrapper" for="bo90-calouneni">
-        <label for="bo90-calouneni">BO90</label>
-        <input type="checkbox" id="bo90-calouneni" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="bo100-calouleni">
-        <label for="bo100-calouleni">BO100</label>
-        <input type="checkbox" id="bo100-calouleni" class="switch-toggle">
-    </label>
-</div>
-<div class="wrapper-typretizku del" data-custom="wrap">
-    <h2>Zvolte typ řetízku pro ovládání rolety na garnýži L</h2>
-    <label class="subwrapper" for="plastbily">
-        <label for="plastbily">Plast bílý</label>
-        <input type="checkbox" id="plastbily" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="kovleskly">
-        <label for="kovleskly">Kov lesklý</label>
-        <input type="checkbox" id="kovleskly" class="switch-toggle">
-    </label>
-</div>
-<div class="wrapper-typrolety del" data-custom="wrap">
-    <h2>Jaký bude typ rolety? M</h2>
-    <label class="subwrapper sub-sita-s-tunylky" for="sitastunylky">
-        <label for="sitastunylky">Šitá s tunýlky</label>
-        <input type="checkbox" id="sitastunylky" class="switch-toggle">
-    </label>
-    <label class="subwrapper sub-sita-bez-vystuh" for="sitabezvystuh">
-        <label for="sitabezvystuh">Šitá bez výstuh</label>
-        <input type="checkbox" id="sitabezvystuh" class="switch-toggle">
-    </label>
-    <label class="subwrapper sub-sezehlena" for="sezehlena">
-        <label for="sezehlena">Sežehlená</label>
-        <input type="checkbox" id="sezehlena" class="switch-toggle">
-    </label>
-</div>
-<div class="wrapper-rubovalatka-zatemnovaci del" data-custom="wrap">
-    <h2>Výběr rubové látky sežehlené zatemňovací rolety R (v excelu N)</h2>
-    <label class="subwrapper" for="rubova-biloseda-bo90">
-        <label for="rubova-biloseda-bo90">BO90 bílo-šedá</label>
-        <input type="checkbox" id="rubova-biloseda-bo90" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="rubova-svetleseda-bo90">
-        <label for="rubova-svetleseda-bo90">BO90 světle šedá</label>
-        <input type="checkbox" id="rubova-svetleseda-bo90" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="rubova-seda-bo90">
-        <label for="rubova-seda-bo90">BO90 šedá</label>
-        <input type="checkbox" id="rubova-seda-bo90" class="switch-toggle">
-    </label>
-    <label class="subwrapper" for="rubova-cernoseda-bo90">
-        <label for="rubova-cernoseda-bo90">BO90 černo-šedá</label>
-        <input type="checkbox" id="rubova-cernoseda-bo90" class="switch-toggle">
-    </label>
-</div>
-<div class="wrapper-licovalatka-zatemnovaci del" data-custom="wrap">
-    <h2>Výběr lícové látky sežehlené zatemňovací rolety P (v excelu pravdepodobne take P?)</h2>
-    <label for="hneda-lic" class="subwrapper">
-        <label for="hneda-lic">Polyester / vzor potisk - hnědá</label>
-        <input type="checkbox" id="hneda-lic" class="switch-toggle">
-    </label>
-    <label for="seda-lic" class="subwrapper">
-        <label for="seda-lic">Polyester / vzor potisk - šedá</label>
-        <input type="checkbox" id="seda-lic" class="switch-toggle">
-    </label>
-    <label for="bezova-lic" class="subwrapper">
-        <label for="bezova-lic">Polyester / vzor potisk - béžová</label>
-        <input type="checkbox" id="bezova-lic" class="switch-toggle">
-    </label>
-</div>
-<div class="wrapper-vyberlatky-polopruhlednerolety del" data-custom="wrap">
-    <h2>Výběr látky poloprůhledné rolety O</h2>
-    <label for="voalseda" class="subwrapper">
-        <label for="voalseda">Voal - Šedá</label>
-        <input type="checkbox" id="voalseda" class="switch-toggle">
-    </label>
-    <label for="voalbezova" class="subwrapper">
-        <label for="voalbezova">Voal - Béžová</label>
-        <input type="checkbox" id="voalbezova" class="switch-toggle">
-    </label>
-</div>
-<div class="wrapper-vyberlatky-poloprusvitnerolety del" data-custom="wrap">
-    <h2>Výběr látky poloprůsvitné rolety S (V excelu R?)</h2>
-    <label for="hneda" class="subwrapper">
-        <label for="hneda">Polyester / Vzor potisk - hnědá</label>
-        <input type="checkbox" id="hneda" class="switch-toggle">
-    </label>
-    <label for="seda" class="subwrapper">
-        <label for="seda">Polyester / Vzor potisk - šedá</label>
-        <input type="checkbox" id="seda" class="switch-toggle">
-    </label>
-    <label for="bezova" class="subwrapper">
-        <label for="bezova">Polyester / Vzor potisk - béžová</label>
-        <input type="checkbox" id="bezova" class="switch-toggle">
-    </label>
-</div>
-<div class="wrapper-vyberlatky-zatemnovacirolety del" data-custom="wrap">
-    <h2>Výběr látky zatemňovací rolety Q</h2>
-    <label for="bo90-zatemnovaci" class="subwrapper">
-        <label for="bo90-zatemnovaci">BO90</label>
-        <input type="checkbox" id="bo90-zatemnovaci" class="switch-toggle">
-    </label>
-    <label for="bo100-zatemnovaci" class="subwrapper">
-        <label for="bo100-zatemnovaci">BO100</label>
-        <input type="checkbox" id="bo100-zatemnovaci" class="switch-toggle">
-    </label>
-</div>
-<!--Možnosti pro NASAZENÍ-->
-
-<!--Možnosti pro TUNÝLEK-->
-
-<!--Pro vše společné na konci-->
 <div class="wrapper-sirkarolety del" data-custom="wrap">
     <h2>Zadejte šířku rolety</h2>
     <label for="sirkarolety" class="subwrapper">
         <label for="sirkarolety">Šířka rolety</label>
+        <div class="info-icon"></div>
+        <div class="help-preview">Zadejte šířku rolety v centimetrech.</div>
         <input type="text" id="sirkarolety" class="text-toggle" required>
     </label>
 </div>
+
 <div class="wrapper-vyskarolety del" data-custom="wrap">
     <h2>Zadejte výšku rolety</h2>
     <label for="vyskarolety" class="subwrapper">
         <label for="vyskarolety">Výška rolety</label>
+        <div class="info-icon"></div>
+        <div class="help-preview">Zadejte výšku rolety v centimetrech.</div>
         <input type="text" id="vyskarolety" class="text-toggle" required>
     </label>
 </div>

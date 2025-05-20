@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+h1{
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 22px !important;
+}
+
+h2{
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px !important;
+}
 body{
     padding: 0;
     margin: 0;
@@ -7,7 +17,6 @@ body{
     width: 100vw;
     font-family: 'Barlow', 'Arial';
     display: flex;
-    justify-content: flex-start;
     flex-direction: column;
     align-items: center;
     background-color: #faf9f8;
@@ -151,9 +160,84 @@ main {
     font-weight: 600;
     color: #333;
     margin-bottom: 15px;
+    text-align: center;
     width: 100%;
 }
 
+/* Container for all choice wrappers except the first one */
+.choice-containers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* First choice wrapper (A) */
+.wrapper-druhrolety {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* Individual wrapper styles */
+[data-custom="wrap"] {
+    flex-direction: column;
+    display: none;
+    width: calc(50% - 20px);
+    min-width: 300px;
+    max-width: 500px;
+    margin: 0;
+    padding: 15px;
+    background-color: transparent;
+    border-radius: 6px;
+    box-shadow: none;
+}
+
+[data-custom="wrap"].show {
+    display: block;
+}
+
+/* Submit button and summary section */
+.button-submit {
+    display: block;
+    width: 180px;
+    margin: 25px auto;
+    padding: 10px 20px;
+    background-color: #e58a9e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.wrapper-shrnuti {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+.wrapper-shrnuti.show {
+    display: block;
+}
+
+/* Remove any conflicting styles */
 .wrapper-druhrolety,
 .wrapper-umistenigarnyze,
 .wrapper-mistozatemneni-garnyz,
@@ -174,10 +258,11 @@ main {
 .wrapper-vyberlatky-zatemnovacirolety,
 .wrapper-sirkarolety,
 .wrapper-vyskarolety {
+    display: none;
+}
+
+.wrapper-druhrolety {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 15px;
 }
 
 .rowrolety{
@@ -264,6 +349,7 @@ main {
     left: 0;
     top: 0;
     margin: 0;
+    
 }
 
 /* Remove background color changes for first three choices */
@@ -374,264 +460,135 @@ main {
 }
 
 /* Section styles */
-[data-custom="wrap"] {
-    display: none;
-    margin: 15px auto;
-    padding: 15px;
-    background-color: transparent;
-    border-radius: 6px;
-    box-shadow: none;
-    width: 100%;
-    max-width: 800px;
-    flex-direction: column;
-}
-
-[data-custom="wrap"].del {
-    display: none;
-}
-
-[data-custom="wrap"].show {
-    display: flex;
-}
-
 [data-custom="wrap"] h2 {
     width: 100%;
-    margin-bottom: 20px;
-    font-size: 24px;
+    margin-bottom: 12px;
+    font-size: 18px;
     text-align: center;
-    order: -1;
     color: #333;
     font-weight: 600;
 }
 
+/* Choice button styles */
 [data-custom="wrap"] .subwrapper {
-    margin-top: 10px;
-    order: 1;
-}
-
-/* First choice styles */
-.wrapper-druhrolety .subwrapper {
-    /*display: grid;
-    grid-template-columns: auto 1fr auto;*/
-    align-items: center;
-    gap: 15px;
-    padding: 12px 15px;
-}
-
-.wrapper-druhrolety .subwrapper img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 4px;
-}
-
-.wrapper-druhrolety .subwrapper label {
-    margin: 0;
-}
-
-.wrapper-druhrolety .subwrapper .vlevo {
+    width: 100%;
+    margin: 0 5px 0 5px;
+    padding: 6px 10px;
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-
-/* Button styles */
-.button-submit {
-    display: block;
-    width: 180px;
-    margin: 25px auto;
-    padding: 10px 20px;
-    background-color: #e58a9e;
-    color: white;
-    border: none;
+    justify-content: space-between;
+    border: 1px solid black;
     border-radius: 4px;
-    font-family: 'Barlow', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
+    position: relative;
 }
 
-.button-submit:hover {
-    background-color: #d17a8e;
+[data-custom="wrap"] .subwrapper label {
+    width: auto;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    flex-grow: 1;
 }
 
-/* Summary section */
-.wrapper-shrnuti {
-    margin: 25px auto;
-    padding: 15px;
-    background-color: #f5f5f5;
-    border-radius: 6px;
+[data-custom="wrap"] .subwrapper input[type="checkbox"] {
+    display: none;
+}
+
+/* Style for selected state with check icon */
+[data-custom="wrap"] .subwrapper:has(input[type="checkbox"]:checked)::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    background-image: url('content/check.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+[data-custom="wrap"] .subwrapper:has(input[type="checkbox"]:checked) {
+    background-color: #e8e8e8;
+}
+
+[data-custom="wrap"] .subwrapper:has(input[type="checkbox"]:checked) label {
+    color: #e58a9e;
+}
+
+/* Hover state */
+[data-custom="wrap"] .subwrapper:hover {
+    background-color: #e8e8e8;
+}
+
+/* Special case for text inputs */
+[data-custom="wrap"] .subwrapper input[type="text"] {
+    width: 80px;
+    margin-left: 8px;
+    display: block; /* Keep text inputs visible */
+}
+
+/* Remove the subwrapper-container styles since we don't need them anymore */
+[data-custom="wrap"] .subwrapper-container {
+    display: flex;
     width: 100%;
-    max-width: 800px;
 }
 
-.wrapper-shrnuti h3 {
-    font-family: 'Barlow', sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 12px;
-}
-
-/* Responsive styles */
-@media screen and (max-width: 900px) {
-    div.nav-i {
-        float: none;
-        width: 100%;
-        text-align: center;
-    }
-    
-    div.nav-ii {
-        float: none;
-        width: 100%;
-        text-align: center;
-    }
-    
-    body > nav > div.nav-0 > div.nav-ii > ul {
-        padding-left: 0px;
-    }
-    
-    body > nav > div.nav-0 > div.nav-ii > ul > li {
-        margin-right: 15px;
-        margin-left: 15px;
-    }
-
-    .wrapper-druhrolety .subwrapper {
-        grid-template-columns: 80px 1fr auto;
-        gap: 10px;
-        padding: 10px;
-    }
-
+/* Responsive adjustments */
+@media screen and (max-width: 750px) {
     .wrapper-druhrolety .subwrapper img {
-        width: 80px;
-        height: 80px;
+        width: 160px !important;
+        height: 160px !important;
     }
+}
 
-    .wrapper-druhrolety .subwrapper label {
-        font-size: 16px;
-    }
-
-    .switch-main {
-        width: 40px;
-        height: 20px;
-    }
-
-    .switch-main:before {
-        width: 16px;
-        height: 16px;
-    }
-
-    .switch-main:checked:before {
-        left: 22px;
-    }
-
-    .obalobal {
-        width: 100%;
-        max-width: 100%;
+@media screen and (max-width: 1200px) {
+    .choice-containers {
         padding: 10px;
-        margin: 10px 0;
     }
-
-    main {
-        width: 100%;
-        max-width: 100%;
-        padding: 0 10px;
-    }
-
+    
     [data-custom="wrap"] {
-        width: 100%;
-        max-width: 100%;
-        padding: 10px;
-        margin: 10px 0;
-    }
-
-    .subwrapper {
-        width: 100%;
-        max-width: 100%;
-        margin: 5px 0;
+        width: calc(50% - 10px);
+        min-width: 280px;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .wrapper-druhrolety .subwrapper {
-        grid-template-columns: 60px 1fr auto;
-        gap: 8px;
-        padding: 8px;
+    .choice-containers {
+        padding: 10px;
     }
-
-    .wrapper-druhrolety .subwrapper img {
-        width: 60px;
-        height: 60px;
-    }
-
-    .wrapper-druhrolety .subwrapper label {
-        font-size: 14px;
-    }
-
-    .switch-main {
-        width: 36px;
-        height: 18px;
-    }
-
-    .switch-main:before {
-        width: 14px;
-        height: 14px;
-    }
-
-    .switch-main:checked:before {
-        left: 20px;
-    }
-
-    .button-submit {
-        width: 100%;
-        margin: 15px 0;
-    }
-
-    .wrapper-shrnuti {
-        width: 100%;
-        max-width: 100%;
-        padding: 8px;
-        margin: 8px 0;
-    }
-
-    .obalobal {
-        padding: 5px;
-        margin: 5px 0;
-    }
-
-    main {
-        padding: 0 5px;
-    }
-
+    
     [data-custom="wrap"] {
-        padding: 8px;
-        margin: 8px 0;
+        width: 100%;
+        min-width: 280px;
+    }
+    
+    .wrapper-druhrolety {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 10px;
+    }
+    
+    .wrapper-druhrolety .subwrapper.zadek {
+        width: 100%;
+        max-width: 250px;
     }
 
-    .subwrapper {
-        margin: 4px 0;
+    .wrapper-druhrolety .subwrapper.zadek .vlevo {
+        width: 100%;
     }
 
-    .wrapper-shrnuti h3 {
-        font-size: 16px;
+    .wrapper-druhrolety .subwrapper.zadek img {
+        width: 100% !important;
+        height: auto !important;
     }
 
-    .wrapper-shrnuti p {
-        font-size: 14px;
-    }
-
-    [data-custom="wrap"] h2 {
-        font-size: 18px;
-        margin-bottom: 15px;
-    }
-
-    .subwrapper {
-        padding: 8px;
-    }
-
-    .subwrapper label {
-        font-size: 14px;
+    [data-custom="wrap"] .subwrapper {
+        width: 100%;
+        margin: 0 0 4px 0;
     }
 }
 
@@ -770,17 +727,126 @@ main {
     }
 }
 
-/* Container for the first three choices */
-.wrapper-druhrolety {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+/* Info icon styles */
+.info-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url('content/info_icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 8px;
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    z-index: 2;
+    pointer-events: auto;
 }
 
+/* Help preview styles */
+.help-preview {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    color: #333;
+    width: 90%;
+    max-width: 300px;
+    z-index: 1000;
+    text-align: center;
+}
 
+/* Show help preview when active class is added */
+.help-preview.active {
+    display: block;
+}
 
+/* Add a semi-transparent overlay when help preview is shown */
+.help-preview::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+/* Add a close button for mobile */
+.help-preview::after {
+    content: '×';
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+    z-index: 1001;
+}
+
+/* Adjust subwrapper for better mobile layout */
+[data-custom="wrap"] .subwrapper {
+    width: 100%;
+    margin: 0 5px 0 5px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    gap: 8px;
+}
+
+[data-custom="wrap"] .subwrapper label {
+    width: auto;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+/* Mobile-specific adjustments */
+@media screen and (max-width: 600px) {
+    .help-preview {
+        font-size: 13px;
+        padding: 12px;
+    }
+
+    [data-custom="wrap"] .subwrapper {
+        padding: 10px;
+    }
+
+    [data-custom="wrap"] .subwrapper label {
+        font-size: 13px;
+    }
+
+    .info-icon {
+        width: 24px;
+        height: 24px;
+        margin-left: 12px;
+        padding: 4px;
+    }
+}
+
+/* Add touch-friendly tap target size for mobile */
+@media (hover: none) {
+    .info-icon {
+        width: 28px;
+        height: 28px;
+        margin-left: 12px;
+        padding: 4px;
+    }
+}
