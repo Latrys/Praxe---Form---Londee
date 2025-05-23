@@ -1254,7 +1254,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const helpPreview = this.nextElementSibling;
 
       // Close any other open help previews
-      document.querySelectorAll(".help-preview.active").forEach((preview) => {
+      document.querySelectorAll(".ssooss.active").forEach((preview) => {
         if (preview !== helpPreview) {
           preview.classList.remove("active");
         }
@@ -1267,17 +1267,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Close help preview when clicking the close button or outside
   document.addEventListener("click", function (e) {
-    if (!e.target.closest(".info-icon") && !e.target.closest(".help-preview")) {
-      document.querySelectorAll(".help-preview.active").forEach((preview) => {
+    if (!e.target.closest(".info-icon") && !e.target.closest(".ssooss")) {
+      document.querySelectorAll(".ssooss.active").forEach((preview) => {
         preview.classList.remove("active");
       });
     }
   });
 
   // Prevent clicks on help preview from closing it
-  document.querySelectorAll(".help-preview").forEach((preview) => {
+  document.querySelectorAll(".ssooss").forEach((preview) => {
     preview.addEventListener("click", function (e) {
       e.stopPropagation();
     });
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Get all content overlays
+  const contentOverlays = document.querySelectorAll(".content-overlay");
+
+  // Add click event listener to each overlay
+  contentOverlays.forEach((overlay) => {
+    overlay.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation(); // Prevent event from bubbling up
+
+      // Toggle active class on the overlay
+      this.classList.toggle("active");
+    });
+  });
+
+  // Close overlay when clicking outside
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".content-overlay")) {
+      contentOverlays.forEach((overlay) => {
+        overlay.classList.remove("active");
+      });
+    }
+  });
+
+  if (document.querySelector(".switch-toggle.active")) {
+    document.querySelector(".ssooss").classList.add("special");
+  }
 });
