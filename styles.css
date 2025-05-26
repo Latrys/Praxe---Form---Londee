@@ -290,7 +290,7 @@ main {
     justify-content: space-between;
     gap: 8px;
     padding: 8px 12px;
-    background-color: #f5f5f5;
+    background-color: white;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s;
@@ -312,17 +312,20 @@ main {
     padding: 0;
     display: inline-block;
     cursor: pointer;
+    aspect-ratio: 1/1;
 }
 
 .subwrapper.zadek .vlevo {
     width: 100%;
+    height: 100%;
     position: relative;
     display: block;
 }
 
 .subwrapper.zadek img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
     border-radius: 4px;
     transition: filter 0.3s ease;
@@ -396,6 +399,9 @@ main {
 }
 
 .subwrapper label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
     text-align: center;
     width: 100%;
     cursor: pointer;
@@ -509,10 +515,10 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid black;
-    border-radius: 4px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     position: relative;
 }
 
@@ -571,9 +577,16 @@ main {
 
 /* Responsive adjustments */
 @media screen and (max-width: 750px) {
+
+    .menu-arrow {
+    width: 20px !important;
+    height: 20px !important;
+    transition: transform 0.3s ease;
+}
+
     .wrapper-druhrolety .subwrapper img {
-        width: 400px !important;
-        height: auto !important;
+        width: 400px;
+        height: auto;
     }
 }
 
@@ -713,6 +726,7 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
+    width: 100%;
     background: rgba(255,255,255,0.85);
     color: #333;
     text-align: center;
@@ -864,8 +878,27 @@ main {
 
 /* Update media queries */
 @media screen and (max-width: 1300px) {
+    .wrapper-druhrolety {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .wrapper-druhrolety .subwrapper.zadek {
+        width: calc(33.333% - 20px);
+        min-width: 350px;
+        aspect-ratio: 1/1;
+    }
+    
     .wrapper-druhrolety .subwrapper.zadek img {
-        width: 300px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .content-overlay {
+        width: 100%;
     }
     
     .content-overlay h3 {
@@ -873,13 +906,31 @@ main {
     }
     
     .content-overlay p {
-        font-size: 12px;
+        font-size: 14px;
     }
 }
 
 @media screen and (max-width: 1000px) {
+    .wrapper-druhrolety {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .wrapper-druhrolety .subwrapper.zadek {
+        width: 100%;
+        max-width: 400px;
+        min-width: 350px;
+        aspect-ratio: 1/1;
+    }
+    
     .wrapper-druhrolety .subwrapper.zadek img {
-        width: 400px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .content-overlay {
+        width: 100%;
     }
     
     .content-overlay h3 {
@@ -887,8 +938,83 @@ main {
     }
     
     .content-overlay p {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper-druhrolety {
+        width: 100%;
+        padding: 0 10px;
+    }
+    
+    .wrapper-druhrolety .subwrapper.zadek {
+        width: 100%;
+        min-width: 350px;
+        max-width: 100%;
+        aspect-ratio: 1/1;
+    }
+
+    .wrapper-druhrolety .subwrapper.zadek img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .content-overlay {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .wrapper-druhrolety .subwrapper.zadek {
+        width: 0 !important;
+        min-width: 0 !important;
+    }
+
+    .subwrapper.zadek .vlevo {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    display: block;
+}
+
+.obrazek{
+    width: 300px !important;
+}
+
+.content-overlay{
+    height: 35%;
+}
+}
+
+@media screen and (max-width: 400px) {
+    .wrapper-druhrolety {
+        padding: 0 5px;
+    }
+    
+   /* .wrapper-druhrolety .subwrapper.zadek {
+        min-width: 350px;
+        width: 100%;
+        aspect-ratio: 1/1;
+    }*/
+    
+   /* .wrapper-druhrolety .subwrapper.zadek img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }*/
+    
+    .content-overlay h3 {
+        font-size: 20px;
+    }
+    
+    .content-overlay p {
         font-size: 14px;
     }
+
+    
 }
 
 .helpicon {
@@ -951,49 +1077,108 @@ main {
     pointer-events: auto;
 }
 
-/* Hide help preview by default */
+/* Help preview styles */
 .help-preview {
-    display: none !important;
+    display: none;
 }
 
-/* Show ssooss when info icon is clicked */
+/* Info popup styles */
 .ssooss {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 12px);
     left: 0;
     right: 0;
     background-color: white;
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid #ddd;
     border-top: none;
     border-radius: 0 0 5px 5px;
-    margin-top: -1px;
+    margin-top: 0;
     z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Show ssooss when info icon is clicked */
-.info-icon:active + .help-preview ~ .columno .ssooss,
-.info-icon:focus + .help-preview ~ .columno .ssooss {
+.ssooss::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 12px 12px 12px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    filter: drop-shadow(0 -1px 0 #ddd);
+    width: 0;
+    height: 0;
+    z-index: 101;
+}
+
+.ssooss p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+}
+
+/* Show info popup when info icon is clicked */
+.info-icon:active + .help-preview ~ .ssooss,
+.info-icon:focus + .help-preview ~ .ssooss {
     display: block;
 }
 
 /* Mobile-specific adjustments */
 @media screen and (max-width: 600px) {
-    .ssooss {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%;
-        max-width: 300px;
-        background-color: white;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        border: 1px solid black;
-        z-index: 1000;
+    .choice-containers {
+        padding: 10px;
     }
+    
+    [data-custom="wrap"] {
+        width: 100%;
+        min-width: 280px;
+    }
+    
+    .wrapper-druhrolety {
+        width: 90vw;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .wrapper-druhrolety .subwrapper.zadek {
+        width: 400px;
+    }
+
+    .wrapper-druhrolety .subwrapper.zadek img {
+        width: 400px;
+        height: auto;
+    }
+
+    [data-custom="wrap"] .subwrapper {
+        width: 100%;
+        margin: 0 0 4px 0;
+    }
+}
+
+/* Column layout for choice buttons */
+.columno {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+}
+
+/* Update subwrapper styles */
+[data-custom="wrap"] .subwrapper {
+    position: relative;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+[data-custom="wrap"] .subwrapper label {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    flex-grow: 1;
 }
 
 .obrazek {
@@ -1012,4 +1197,202 @@ main {
 
 .special{
     display: block !important;
+}
+
+/* Fabric select styles */
+.fabric-select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.fabric-select:hover {
+    border-color: #e58a9e;
+}
+
+.fabric-select:focus {
+    outline: none;
+    border-color: #e58a9e;
+    box-shadow: 0 0 0 2px rgba(229, 138, 158, 0.2);
+}
+
+.fabric-select option {
+    padding: 10px;
+}
+
+/* Remove the old checkbox styles for fabric selection */
+.wrapper-vyberlatky-zatemnovacirolety .subwrapper {
+    display: none;
+}
+
+/* Fabric selection styles */
+.fabric-selection-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.fabric-select-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.fabric-select-trigger:hover {
+    border-color: #e58a9e;
+    box-shadow: 0 2px 8px rgba(229, 138, 158, 0.2);
+}
+
+.fabric-select-trigger.active {
+    border-color: #e58a9e;
+    background-color: #fff5f7;
+}
+
+.fabric-select-trigger .fabric-details {
+    flex: 1;
+}
+
+.fabric-select-trigger .fabric-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.fabric-select-trigger .fabric-description {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0 0 0;
+}
+
+.fabric-select-trigger .dropdown-arrow {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.fabric-select-trigger.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.fabric-options-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 9999;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.fabric-options-dropdown.show {
+    display: block;
+}
+
+.fabric-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #eee;
+}
+
+.fabric-option:last-child {
+    border-bottom: none;
+}
+
+.fabric-option:hover {
+    background-color: #fff5f7;
+}
+
+.fabric-option.selected {
+    background-color: #fff5f7;
+    border-left: 3px solid #e58a9e;
+}
+
+.fabric-option img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.fabric-option .fabric-details {
+    flex: 1;
+}
+
+.fabric-option .fabric-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0 0 5px 0;
+}
+
+.fabric-option .fabric-description {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 5px 0;
+}
+
+.fabric-option .fabric-price {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e58a9e;
+    margin: 0;
+}
+
+/* Scrollbar styles */
+.fabric-options-dropdown::-webkit-scrollbar {
+    width: 8px;
+}
+
+.fabric-options-dropdown::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.fabric-options-dropdown::-webkit-scrollbar-thumb {
+    background: #e58a9e;
+    border-radius: 4px;
+}
+
+.fabric-options-dropdown::-webkit-scrollbar-thumb:hover {
+    background: #d17a8e;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    .fabric-option {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .fabric-option .fabric-image {
+        width: 100%;
+        height: 150px;
+    }
+    
+    .fabric-option .fabric-details {
+        width: 100%;
+    }
 }

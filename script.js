@@ -857,10 +857,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
           /*Q -- Vyber latky zatemnovaci rolety*/
           const latka_zatemnovaci = document.createElement("p");
           const textQ = "Látka rolety (zatemňovací): ";
-          if (q1) {
-            latka_zatemnovaci.textContent = textQ + "BlackOut 90";
-          } else if (q2) {
-            latka_zatemnovaci.textContent = textQ + "BlackOut 100";
+          const selectedFabric = document.querySelector(
+            ".fabric-option.selected"
+          );
+          if (selectedFabric) {
+            const fabricId = selectedFabric.dataset.fabricId;
+            const fabric = fabricOptions.find((f) => f.id === fabricId);
+            if (fabric) {
+              latka_zatemnovaci.textContent = textQ + fabric.title;
+            }
           }
           shrnuti_wrap.append(latka_zatemnovaci);
           /*R -- Rubová látka zatemňovací rolety*/
@@ -989,10 +994,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
           /*Q -- Vyber latky zatemnovaci rolety*/
           const latka_zatemnovaci = document.createElement("p");
           const textQ = "Látka rolety (zatemňovací): ";
-          if (q1) {
-            latka_zatemnovaci.textContent = textQ + "BlackOut 90";
-          } else if (q2) {
-            latka_zatemnovaci.textContent = textQ + "BlackOut 100";
+          const selectedFabric = document.querySelector(
+            ".fabric-option.selected"
+          );
+          if (selectedFabric) {
+            const fabricId = selectedFabric.dataset.fabricId;
+            const fabric = fabricOptions.find((f) => f.id === fabricId);
+            if (fabric) {
+              latka_zatemnovaci.textContent = textQ + fabric.title;
+            }
           }
           shrnuti_wrap.append(latka_zatemnovaci);
           /*R -- Rubová látka zatemňovací rolety*/
@@ -1107,10 +1117,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
           /*Q -- Vyber latky zatemnovaci rolety*/
           const latka_zatemnovaci = document.createElement("p");
           const textQ = "Látka rolety (zatemňovací): ";
-          if (q1) {
-            latka_zatemnovaci.textContent = textQ + "BlackOut 90";
-          } else if (q2) {
-            latka_zatemnovaci.textContent = textQ + "BlackOut 100";
+          const selectedFabric = document.querySelector(
+            ".fabric-option.selected"
+          );
+          if (selectedFabric) {
+            const fabricId = selectedFabric.dataset.fabricId;
+            const fabric = fabricOptions.find((f) => f.id === fabricId);
+            if (fabric) {
+              latka_zatemnovaci.textContent = textQ + fabric.title;
+            }
           }
           shrnuti_wrap.append(latka_zatemnovaci);
           /*R -- Rubová látka zatemňovací rolety*/
@@ -1193,6 +1208,303 @@ document.addEventListener("DOMContentLoaded", (event) => {
   submitButton.addEventListener("click", () => {
     summarySection.classList.add("show");
   });
+
+  // Fabric options array
+  const fabricOptions = [
+    // Čalounění (K)
+    {
+      id: "bo90-calouneni",
+      title: "BO90 - Standardní zatemňovací látka",
+      description:
+        "Standardní zatemňovací látka s 90% zatemněním. Vhodná pro většinu interiérů.",
+      image: "content/latky_test_1.jpg",
+      price: "150 Kč/m²",
+      type: "calouneni",
+    },
+    {
+      id: "bo100-calouneni",
+      title: "BO100 - Prémiová zatemňovací látka",
+      description:
+        "Prémiová zatemňovací látka s 100% zatemněním. Ideální pro maximální zatemnění.",
+      image: "content/latky_test_2.jpg",
+      price: "200 Kč/m²",
+      type: "calouneni",
+    },
+    // Rubová látka (N)
+    {
+      id: "rubova-biloseda-bo90",
+      title: "BO90 bílo-šedá",
+      description:
+        "Jemná bílo-šedá rubová látka. Vhodná pro světlé interiéry a jemné barevné kombinace.",
+      image: "content/latky_test_1.jpg",
+      price: "150 Kč/m²",
+      type: "rubova",
+    },
+    {
+      id: "rubova-svetleseda-bo90",
+      title: "BO90 světle šedá",
+      description:
+        "Univerzální světle šedá rubová látka. Vhodná pro většinu interiérů a barevných kombinací.",
+      image: "content/latky_test_2.jpg",
+      price: "150 Kč/m²",
+      type: "rubova",
+    },
+    {
+      id: "rubova-seda-bo90",
+      title: "BO90 šedá",
+      description:
+        "Klasická šedá rubová látka. Vhodná pro moderní interiéry a neutrální barevné schémata.",
+      image: "content/latky_test_1.jpg",
+      price: "150 Kč/m²",
+      type: "rubova",
+    },
+    {
+      id: "rubova-cernoseda-bo90",
+      title: "BO90 černo-šedá",
+      description:
+        "Tmavá černo-šedá rubová látka. Ideální pro kontrastní interiéry a moderní design.",
+      image: "content/latky_test_2.jpg",
+      price: "150 Kč/m²",
+      type: "rubova",
+    },
+    // Lícová látka (P)
+    {
+      id: "hneda-lic",
+      title: "Polyester / vzor potisk - hnědá",
+      description:
+        "Elegantní hnědá látka s potiskem. Vhodná pro teplé interiéry a přírodní barevné schémata.",
+      image: "content/latky_test_1.jpg",
+      price: "180 Kč/m²",
+      type: "licova",
+    },
+    {
+      id: "seda-lic",
+      title: "Polyester / vzor potisk - šedá",
+      description:
+        "Moderní šedá látka s potiskem. Univerzální řešení pro současné interiéry.",
+      image: "content/latky_test_2.jpg",
+      price: "180 Kč/m²",
+      type: "licova",
+    },
+    {
+      id: "bezova-lic",
+      title: "Polyester / vzor potisk - béžová",
+      description:
+        "Jemná béžová látka s potiskem. Vhodná pro světlé interiéry a klasické designy.",
+      image: "content/latky_test_1.jpg",
+      price: "180 Kč/m²",
+      type: "licova",
+    },
+    // Poloprůhledná rolety (O)
+    {
+      id: "voalseda",
+      title: "Voal - Šedá",
+      description:
+        "Jemný šedý voal. Poskytuje lehké zastínění při zachování výhledu.",
+      image: "content/latky_test_2.jpg",
+      price: "120 Kč/m²",
+      type: "polopruhledna",
+    },
+    {
+      id: "voalbezova",
+      title: "Voal - Béžová",
+      description:
+        "Jemný béžový voal. Vytváří teplou atmosféru a jemné zastínění.",
+      image: "content/latky_test_1.jpg",
+      price: "120 Kč/m²",
+      type: "polopruhledna",
+    },
+    // Poloprůsvitná rolety (R)
+    {
+      id: "hneda",
+      title: "Polyester / Vzor potisk - hnědá",
+      description:
+        "Hnědá polyesterová látka s potiskem. Poskytuje střední stupeň zastínění.",
+      image: "content/latky_test_2.jpg",
+      price: "160 Kč/m²",
+      type: "poloprusvitna",
+    },
+    {
+      id: "seda",
+      title: "Polyester / Vzor potisk - šedá",
+      description:
+        "Šedá polyesterová látka s potiskem. Univerzální řešení pro střední zastínění.",
+      image: "content/latky_test_1.jpg",
+      price: "160 Kč/m²",
+      type: "poloprusvitna",
+    },
+    {
+      id: "bezova",
+      title: "Polyester / Vzor potisk - béžová",
+      description:
+        "Béžová polyesterová látka s potiskem. Vytváří příjemnou atmosféru s jemným zastíněním.",
+      image: "content/latky_test_2.jpg",
+      price: "160 Kč/m²",
+      type: "poloprusvitna",
+    },
+    // Zatemňovací rolety (Q)
+    {
+      id: "bo90-zatemnovaci",
+      title: "BO90 - Standardní zatemňovací látka",
+      description:
+        "Standardní zatemňovací látka s 90% zatemněním. Vhodná pro většinu interiérů.",
+      image: "content/latky_test_1.jpg",
+      price: "150 Kč/m²",
+      type: "zatemnovaci",
+    },
+    {
+      id: "bo100-zatemnovaci",
+      title: "BO100 - Prémiová zatemňovací látka",
+      description:
+        "Prémiová zatemňovací látka s 100% zatemněním. Ideální pro maximální zatemnění.",
+      image: "content/latky_test_2.jpg",
+      price: "200 Kč/m²",
+      type: "zatemnovaci",
+    },
+  ];
+
+  // Function to create fabric option element
+  function createFabricOption(fabric) {
+    const option = document.createElement("div");
+    option.className = "fabric-option";
+    option.dataset.fabricId = fabric.id;
+
+    option.innerHTML = `
+        <img src="${fabric.image}" alt="${fabric.title}" class="fabric-image">
+        <div class="fabric-details">
+            <h3 class="fabric-title">${fabric.title}</h3>
+            <p class="fabric-description">${fabric.description}</p>
+            <p class="fabric-price">${fabric.price}</p>
+        </div>
+    `;
+
+    option.addEventListener("click", () => {
+      // Remove selected class from all options in this container
+      const container = option.closest(".fabric-selection-container");
+      container
+        .querySelectorAll(".fabric-option")
+        .forEach((opt) => opt.classList.remove("selected"));
+
+      // Add selected class to clicked option
+      option.classList.add("selected");
+
+      // Update the trigger element with selected fabric info
+      const trigger = container.querySelector(".fabric-select-trigger");
+      if (trigger) {
+        trigger.querySelector(".fabric-title").textContent = fabric.title;
+        trigger.querySelector(".fabric-description").textContent =
+          fabric.description;
+      }
+
+      // Update the corresponding variable based on fabric type
+      switch (fabric.type) {
+        case "calouneni":
+          k1 = fabric.id === "bo90-calouneni";
+          k2 = fabric.id === "bo100-calouneni";
+          break;
+        case "rubova":
+          r1 = fabric.id === "rubova-biloseda-bo90";
+          r2 = fabric.id === "rubova-svetleseda-bo90";
+          r3 = fabric.id === "rubova-seda-bo90";
+          r4 = fabric.id === "rubova-cernoseda-bo90";
+          break;
+        case "licova":
+          s1 = fabric.id === "hneda-lic";
+          s2 = fabric.id === "seda-lic";
+          s3 = fabric.id === "bezova-lic";
+          break;
+        case "polopruhledna":
+          o1 = fabric.id === "voalseda";
+          o2 = fabric.id === "voalbezova";
+          break;
+        case "poloprusvitna":
+          p1 = fabric.id === "hneda";
+          p2 = fabric.id === "seda";
+          p3 = fabric.id === "bezova";
+          break;
+        case "zatemnovaci":
+          q1 = fabric.id === "bo90-zatemnovaci";
+          q2 = fabric.id === "bo100-zatemnovaci";
+          break;
+      }
+    });
+
+    return option;
+  }
+
+  // Function to populate fabric selection container
+  function populateFabricSelection(containerId, fabricType) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    // Create trigger element
+    const trigger = document.createElement("div");
+    trigger.className = "fabric-select-trigger";
+    trigger.innerHTML = `
+      <div class="fabric-details">
+        <div class="fabric-title">Vyberte látku</div>
+        <div class="fabric-description">Klikněte pro výběr látky</div>
+      </div>
+      <img src="content/menu_arrow.png" alt="Dropdown" class="dropdown-arrow">
+    `;
+
+    // Create dropdown container
+    const dropdown = document.createElement("div");
+    dropdown.className = "fabric-options-dropdown";
+
+    // Add fabric options to dropdown based on type
+    fabricOptions
+      .filter((fabric) => fabric.type === fabricType)
+      .forEach((fabric) => {
+        dropdown.appendChild(createFabricOption(fabric));
+      });
+
+    // Add click event to trigger
+    trigger.addEventListener("click", () => {
+      trigger.classList.toggle("active");
+      dropdown.classList.toggle("show");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (event) => {
+      if (!container.contains(event.target)) {
+        trigger.classList.remove("active");
+        dropdown.classList.remove("show");
+      }
+    });
+
+    // Add elements to container
+    container.appendChild(trigger);
+    container.appendChild(dropdown);
+  }
+
+  // Initialize fabric selection for each type
+  populateFabricSelection("fabric-selection-container-calouneni", "calouneni");
+  populateFabricSelection("fabric-selection-container-rubova", "rubova");
+  populateFabricSelection("fabric-selection-container-licova", "licova");
+  populateFabricSelection(
+    "fabric-selection-container-polopruhledna",
+    "polopruhledna"
+  );
+  populateFabricSelection(
+    "fabric-selection-container-poloprusvitna",
+    "poloprusvitna"
+  );
+  populateFabricSelection(
+    "fabric-selection-container-zatemnovaci",
+    "zatemnovaci"
+  );
+
+  // Remove duplicate function
+  // Function to populate fabric options
+  // function populateFabricSelection() {
+  //   const container = document.getElementById("fabric-selection-container");
+  //   if (!container) return;
+  //   ...
+  // }
+
+  // Remove duplicate function call
+  // populateFabricSelection();
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -1252,24 +1564,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Get the associated help preview
       const helpPreview = this.nextElementSibling;
+      const infoPopup = this.parentElement.querySelector(".ssooss");
 
       // Close any other open help previews
       document.querySelectorAll(".ssooss.active").forEach((preview) => {
-        if (preview !== helpPreview) {
+        if (preview !== infoPopup) {
           preview.classList.remove("active");
+          preview.style.display = "none";
         }
       });
 
       // Toggle the current help preview
-      helpPreview.classList.toggle("active");
+      if (infoPopup.style.display === "block") {
+        infoPopup.style.display = "none";
+      } else {
+        infoPopup.style.display = "block";
+      }
     });
   });
 
-  // Close help preview when clicking the close button or outside
+  // Close help preview when clicking outside
   document.addEventListener("click", function (e) {
     if (!e.target.closest(".info-icon") && !e.target.closest(".ssooss")) {
-      document.querySelectorAll(".ssooss.active").forEach((preview) => {
-        preview.classList.remove("active");
+      document.querySelectorAll(".ssooss").forEach((preview) => {
+        preview.style.display = "none";
       });
     }
   });
