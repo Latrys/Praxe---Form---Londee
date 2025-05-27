@@ -524,7 +524,7 @@ main {
 
 [data-custom="wrap"] .subwrapper label {
     width: auto;
-    text-align: center;
+    text-align: left;
     margin: 0;
     padding: 0;
     font-size: 14px;
@@ -1395,4 +1395,29 @@ main {
     .fabric-option .fabric-details {
         width: 100%;
     }
+}
+
+.delky_label{
+    width: 100px;
+}
+
+.wrapper-sirkarolety,
+.wrapper-vyskarolety {
+    width: calc(30% - 20px) !important;
+    min-width: 200px !important;
+    max-width: 300px !important;
+}
+
+.wrapper-sirkarolety .subwrapper,
+.wrapper-vyskarolety .subwrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.wrapper-sirkarolety input,
+.wrapper-vyskarolety input {
+    width: 80%;
+    text-align: center;
 }
