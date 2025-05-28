@@ -3,7 +3,7 @@
  *       - u E a F osetrit to aby kod vedel kdy se zadalo neco do textoveho pole na overeni
  *       - pokud nejdříve vyberem sezhlenenou > zvolime lic a rub pak prepneme na ty dalsi dve a vyberem typ latky zatemnovaci ve shrnuti se zobrazi obe (oparvit)
  *       - duplikuje se nazev vypocet pod nadpisem shrnuti (udelat to aby se to odstranilo kdyz se to znovu zmackne?)
- *
+ *       - zatemňovací druh rolety se zobrazí vždycky -
  * * */
 
 /* Public proměnné */
@@ -927,7 +927,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               .join("\n");
 
             // Create mailto link with the summary content
-            const mailtoLink = `mailto:?subject=Poptávka na roletu&body=${encodeURIComponent(
+            const mailtoLink = `mailto:configurator@londee.cz?subject=Poptávka na roletu&body=${encodeURIComponent(
               emailContent
             )}`;
             window.location.href = mailtoLink;
@@ -1091,7 +1091,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               .join("\n");
 
             // Create mailto link with the summary content
-            const mailtoLink = `mailto:?subject=Poptávka na roletu&body=${encodeURIComponent(
+            const mailtoLink = `mailto:configurator@londee.cz?subject=Poptávka na roletu&body=${encodeURIComponent(
               emailContent
             )}`;
             window.location.href = mailtoLink;
@@ -1231,7 +1231,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               .join("\n");
 
             // Create mailto link with the summary content
-            const mailtoLink = `mailto:?subject=Poptávka na roletu&body=${encodeURIComponent(
+            const mailtoLink = `mailto:configurator@londee.cz?subject=Poptávka na roletu&body=${encodeURIComponent(
               emailContent
             )}`;
             window.location.href = mailtoLink;
