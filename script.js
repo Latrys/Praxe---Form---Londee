@@ -912,6 +912,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
           vypocet_garnyz.textContent = 0.25 * sirka_real * vyska_real + "Kč";
           shrnuti_wrap.append(vypocet_garnyz);
+
+          // Add "Poslat poptávku" button
+          const sendInquiryButton = document.createElement("button");
+          sendInquiryButton.className = "button-submit";
+          sendInquiryButton.style.marginTop = "20px";
+          sendInquiryButton.textContent = "Poslat poptávku";
+
+          sendInquiryButton.addEventListener("click", () => {
+            // Get all summary paragraphs
+            const summaryItems = Array.from(shrnuti_wrap.querySelectorAll("p"));
+            const emailContent = summaryItems
+              .map((item) => item.textContent)
+              .join("\n");
+
+            // Create mailto link with the summary content
+            const mailtoLink = `mailto:?subject=Poptávka na roletu&body=${encodeURIComponent(
+              emailContent
+            )}`;
+            window.location.href = mailtoLink;
+          });
+
+          shrnuti_wrap.append(sendInquiryButton);
         } else if (checkboxi.id === "nasazeni") {
           /*D -- Místo zatemnění nasazení*/
           const misto_zatemneni_nasazeni = document.createElement("p");
@@ -1054,6 +1076,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
           vypocet_garnyz.textContent =
             0.18 * sirka_real * vyska_real + prirazka_vlastni + "Kč";
           shrnuti_wrap.append(vypocet_garnyz);
+
+          // Add "Poslat poptávku" button
+          const sendInquiryButton = document.createElement("button");
+          sendInquiryButton.className = "button-submit";
+          sendInquiryButton.style.marginTop = "20px";
+          sendInquiryButton.textContent = "Poslat poptávku";
+
+          sendInquiryButton.addEventListener("click", () => {
+            // Get all summary paragraphs
+            const summaryItems = Array.from(shrnuti_wrap.querySelectorAll("p"));
+            const emailContent = summaryItems
+              .map((item) => item.textContent)
+              .join("\n");
+
+            // Create mailto link with the summary content
+            const mailtoLink = `mailto:?subject=Poptávka na roletu&body=${encodeURIComponent(
+              emailContent
+            )}`;
+            window.location.href = mailtoLink;
+          });
+
+          shrnuti_wrap.append(sendInquiryButton);
         } else if (checkboxi.id === "tunylek") {
           /*Prumer tyce*/
           const prumer_tyce = document.createElement("p");
@@ -1172,6 +1216,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
           vypocet_garnyz.textContent = 0.14 * sirka_real * vyska_real + "Kč";
           shrnuti_wrap.append(vypocet_garnyz);
+
+          // Add "Poslat poptávku" button
+          const sendInquiryButton = document.createElement("button");
+          sendInquiryButton.className = "button-submit";
+          sendInquiryButton.style.marginTop = "20px";
+          sendInquiryButton.textContent = "Poslat poptávku";
+
+          sendInquiryButton.addEventListener("click", () => {
+            // Get all summary paragraphs
+            const summaryItems = Array.from(shrnuti_wrap.querySelectorAll("p"));
+            const emailContent = summaryItems
+              .map((item) => item.textContent)
+              .join("\n");
+
+            // Create mailto link with the summary content
+            const mailtoLink = `mailto:?subject=Poptávka na roletu&body=${encodeURIComponent(
+              emailContent
+            )}`;
+            window.location.href = mailtoLink;
+          });
+
+          shrnuti_wrap.append(sendInquiryButton);
         }
       }
     });
