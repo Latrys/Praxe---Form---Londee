@@ -415,7 +415,7 @@ main {
 .subwrapper input[type="checkbox"]:checked + label,
 .subwrapper input[type="checkbox"]:checked ~ label,
 .subwrapper:has(input[type="checkbox"]:checked) label {
-    color: #e58a9e !important;
+    color: #333 !important;
 }
 
 .subwrapper:has(input[type="checkbox"]:checked) {
@@ -550,7 +550,8 @@ main {
 }
 
 [data-custom="wrap"] .subwrapper:has(input[type="checkbox"]:checked) {
-    background-color: #e8e8e8;
+    background-color: #fff5f7;
+    border-color: #e58a9e;
 }
 
 [data-custom="wrap"] .subwrapper:has(input[type="checkbox"]:checked) label {
@@ -1064,8 +1065,8 @@ main {
 
 /* Info icon styles */
 .info-icon {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background-image: url('content/info_icon.png');
     background-size: contain;
     background-repeat: no-repeat;
@@ -1248,20 +1249,26 @@ main {
     cursor: pointer;
     background-color: white;
     transition: all 0.3s ease;
+    gap: 15px;
 }
 
-.fabric-select-trigger:hover {
-    border-color: #e58a9e;
-    box-shadow: 0 2px 8px rgba(229, 138, 158, 0.2);
-}
-
-.fabric-select-trigger.active {
-    border-color: #e58a9e;
+.fabric-select-trigger.active,
+.fabric-select-trigger.selected {
+    border: 1px solid #e58a9e;
     background-color: #fff5f7;
+}
+
+.fabric-select-trigger .fabric-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
 }
 
 .fabric-select-trigger .fabric-details {
     flex: 1;
+    min-width: 0;
 }
 
 .fabric-select-trigger .fabric-title {
@@ -1269,12 +1276,18 @@ main {
     font-weight: 600;
     color: #333;
     margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .fabric-select-trigger .fabric-description {
     font-size: 14px;
     color: #666;
     margin: 5px 0 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .fabric-select-trigger .dropdown-arrow {

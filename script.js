@@ -1460,7 +1460,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
         trigger.querySelector(".fabric-title").textContent = fabric.title;
         trigger.querySelector(".fabric-description").textContent =
           fabric.description;
+        // Add image preview to trigger
+        let triggerImage = trigger.querySelector(".fabric-image");
+        if (!triggerImage) {
+          triggerImage = document.createElement("img");
+          triggerImage.className = "fabric-image";
+          trigger.insertBefore(
+            triggerImage,
+            trigger.querySelector(".fabric-details")
+          );
+        }
+        triggerImage.src = fabric.image;
+        triggerImage.alt = fabric.title;
+
+        // Add selected class to trigger to maintain styling after selection
+        trigger.classList.add("selected");
       }
+
+      // Close the dropdown but maintain the selected styling
+      trigger.classList.remove("active");
+      container
+        .querySelector(".fabric-options-dropdown")
+        .classList.remove("show");
 
       // Update the corresponding variable based on fabric type
       switch (fabric.type) {
