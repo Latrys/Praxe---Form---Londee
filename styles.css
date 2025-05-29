@@ -224,7 +224,7 @@ main {
     border: none;
     border-radius: 4px;
     font-family: 'Barlow', sans-serif;
-    font-size: 14px;
+    font-size: 17px;
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -706,8 +706,8 @@ main {
     }
 
     .button-submit {
-        height: 60px;
-        width: 130px;
+       /* height: 60px;*/
+        width: 350px;
         transition: 0.5s;
     }
 }

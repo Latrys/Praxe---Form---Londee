@@ -167,7 +167,29 @@ document.addEventListener("DOMContentLoaded", (event) => {
       textField.value = "";
     });
 
-    //Tady !!!
+    // Reset fabric selection variables
+    q1 = q2 = false; // Reset zatemňovací fabric selections
+    r1 = r2 = r3 = r4 = false; // Reset rubová látka selections
+    s1 = s2 = s3 = false; // Reset lícová látka selections
+    o1 = o2 = false; // Reset poloprůhledná fabric selections
+    p1 = p2 = p3 = false; // Reset poloprůsvitná fabric selections
+    k1 = k2 = false; // Reset čalounění fabric selections
+
+    // Reset fabric selection UI
+    document.querySelectorAll(".fabric-option").forEach((option) => {
+      option.classList.remove("selected");
+    });
+
+    document.querySelectorAll(".fabric-select-trigger").forEach((trigger) => {
+      trigger.classList.remove("selected");
+      trigger.querySelector(".fabric-title").textContent = "Vyberte látku";
+      trigger.querySelector(".fabric-description").textContent =
+        "Klikněte pro výběr látky";
+      const triggerImage = trigger.querySelector(".fabric-image");
+      if (triggerImage) {
+        triggerImage.remove();
+      }
+    });
   }
 
   handleCheckboxes(checkboxes_druhrolety, (checkbox) => {
@@ -281,6 +303,159 @@ document.addEventListener("DOMContentLoaded", (event) => {
     ).style.display = "none";
   });
 
+  // Function to reset all choices that come after a specific choice
+  function resetSubsequentChoices(changedChoiceId) {
+    // Define the order of choices
+    const choiceOrder = [
+      "druhrolety",
+      "umistenigarnyze",
+      "mistozatemneni-garnyz",
+      "stupenzastineni",
+      "designgarnyze",
+      "vyberlatky",
+      "typretizku",
+      "typrolety",
+      "vyberlatky-polopruhlednerolety",
+      "vyberlatky-poloprusvitnerolety",
+      "vyberlatky-zatemnovacirolety",
+      "rubovalatka-zatemnovaci",
+      "licovalatka-zatemnovaci",
+    ];
+
+    // Find the index of the changed choice
+    const changedIndex = choiceOrder.findIndex(
+      (choice) => choice === changedChoiceId
+    );
+    if (changedIndex === -1) return;
+
+    // Reset all subsequent choices
+    for (let i = changedIndex + 1; i < choiceOrder.length; i++) {
+      const wrapperClass = `.wrapper-${choiceOrder[i]}`;
+      const wrapper = document.querySelector(wrapperClass);
+      if (wrapper) {
+        // Uncheck all checkboxes in this wrapper
+        const checkboxes = wrapper.querySelectorAll(".switch-toggle");
+        checkboxes.forEach((checkbox) => {
+          checkbox.checked = false;
+        });
+        // Hide the wrapper
+        wrapper.style.display = "none";
+      }
+    }
+
+    // Reset fabric selection variables based on what was changed
+    if (changedChoiceId === "druhrolety") {
+      // Reset all fabric selections when main choice changes
+      q1 = q2 = false; // Reset zatemňovací fabric selections
+      r1 = r2 = r3 = r4 = false; // Reset rubová látka selections
+      s1 = s2 = s3 = false; // Reset lícová látka selections
+      o1 = o2 = false; // Reset poloprůhledná fabric selections
+      p1 = p2 = p3 = false; // Reset poloprůsvitná fabric selections
+      k1 = k2 = false; // Reset čalounění fabric selections
+
+      // Reset all fabric selection UI
+      document.querySelectorAll(".fabric-option").forEach((option) => {
+        option.classList.remove("selected");
+      });
+
+      document.querySelectorAll(".fabric-select-trigger").forEach((trigger) => {
+        trigger.classList.remove("selected");
+        trigger.querySelector(".fabric-title").textContent = "Vyberte látku";
+        trigger.querySelector(".fabric-description").textContent =
+          "Klikněte pro výběr látky";
+        const triggerImage = trigger.querySelector(".fabric-image");
+        if (triggerImage) {
+          triggerImage.remove();
+        }
+      });
+    } else if (changedChoiceId === "stupenzastineni") {
+      // Reset fabric selections when shade type changes
+      q1 = q2 = false; // Reset zatemňovací fabric selections
+      o1 = o2 = false; // Reset poloprůhledná fabric selections
+      p1 = p2 = p3 = false; // Reset poloprůsvitná fabric selections
+
+      // Reset relevant fabric selection UI
+      document.querySelectorAll(".fabric-option").forEach((option) => {
+        if (
+          option.dataset.fabricId.includes("zatemnovaci") ||
+          option.dataset.fabricId.includes("polopruhledna") ||
+          option.dataset.fabricId.includes("poloprusvitna")
+        ) {
+          option.classList.remove("selected");
+        }
+      });
+
+      document.querySelectorAll(".fabric-select-trigger").forEach((trigger) => {
+        if (
+          trigger.closest("#fabric-selection-container-zatemnovaci") ||
+          trigger.closest("#fabric-selection-container-polopruhledna") ||
+          trigger.closest("#fabric-selection-container-poloprusvitna")
+        ) {
+          trigger.classList.remove("selected");
+          trigger.querySelector(".fabric-title").textContent = "Vyberte látku";
+          trigger.querySelector(".fabric-description").textContent =
+            "Klikněte pro výběr látky";
+          const triggerImage = trigger.querySelector(".fabric-image");
+          if (triggerImage) {
+            triggerImage.remove();
+          }
+        }
+      });
+    }
+
+    // Reset visibility based on the changed choice
+    if (changedChoiceId === "stupenzastineni") {
+      // Reset visibility for all sections that depend on stupenzastineni
+      document.querySelector(".wrapper-designgarnyze").style.display = "none";
+      document.querySelector(".wrapper-vyberlatky").style.display = "none";
+      document.querySelector(".wrapper-typretizku").style.display = "none";
+      document.querySelector(".wrapper-typrolety").style.display = "none";
+      document.querySelector(
+        ".wrapper-vyberlatky-polopruhlednerolety"
+      ).style.display = "none";
+      document.querySelector(
+        ".wrapper-vyberlatky-poloprusvitnerolety"
+      ).style.display = "none";
+      document.querySelector(
+        ".wrapper-vyberlatky-zatemnovacirolety"
+      ).style.display = "none";
+      document.querySelector(".wrapper-rubovalatka-zatemnovaci").style.display =
+        "none";
+      document.querySelector(".wrapper-licovalatka-zatemnovaci").style.display =
+        "none";
+      document.querySelector(".wrapper-sirkarolety").style.display = "none";
+      document.querySelector(".wrapper-vyskarolety").style.display = "none";
+      document.querySelector(".sub-sezehlena").style.display = "none";
+      document.querySelector(".sub-castecne-calounena").style.display = "none";
+      document.querySelector(".sub-roleta-z-jednoho-kusu").style.display =
+        "none";
+
+      // Show only the relevant sections based on the new selection
+      if (h1) {
+        // polopruhledna
+        document.querySelector(".wrapper-designgarnyze").style.display = "flex";
+        document.querySelector(".sub-castecne-calounena").style.display =
+          "flex";
+        document.querySelector(".sub-roleta-z-jednoho-kusu").style.display =
+          "flex";
+      } else if (h2) {
+        // poloprusvitna
+        document.querySelector(".wrapper-designgarnyze").style.display = "flex";
+        document.querySelector(".sub-castecne-calounena").style.display =
+          "flex";
+        document.querySelector(".sub-roleta-z-jednoho-kusu").style.display =
+          "flex";
+      } else if (h3) {
+        // zatemnovaci
+        document.querySelector(".wrapper-designgarnyze").style.display = "flex";
+        document.querySelector(".sub-castecne-calounena").style.display =
+          "flex";
+        document.querySelector(".sub-roleta-z-jednoho-kusu").style.display =
+          "flex";
+      }
+    }
+  }
+
   /*--------GARNYZ---------*/
   handleCheckboxes(checkboxes_mistoprogarnyz, (checkbox) => {
     b1 = b2 = false; // zajisteni aby byli promene false
@@ -321,6 +496,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
       case "zatemnovaci":
         h3 = checkbox.checked;
         break;
+    }
+
+    // Reset subsequent choices when this choice changes
+    if (checkbox.checked) {
+      resetSubsequentChoices("stupenzastineni");
     }
 
     // Only show .wrapper-designgarnyze if a1 is true and any of h1, h2, or h3 are true
@@ -400,6 +580,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
         i3 = checkbox.checked;
         break;
     }
+
+    // Reset subsequent choices when this choice changes
+    if (checkbox.checked) {
+      resetSubsequentChoices("designgarnyze");
+    }
+
     /*calounena - castecne calounena (maji stejna menu) + roleta z jednoho kusu jen nekde*/
     document.querySelector(".wrapper-vyberlatky").style.display =
       i1 || i2 ? "flex" : "none";
@@ -668,9 +854,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   /* Button event listener */
   const button_submit = document.querySelector(".button-submit");
+  const sirkaInput = document.getElementById("sirkarolety");
+  const vyskaInput = document.getElementById("vyskarolety");
+
   button_submit.addEventListener("click", (event) => {
-    /*Obecne pro vsechny (vyska, sirka)*/
     const sirka_wrap = document.getElementById("sirkarolety").value.trim();
+    const vyska_wrap = document.getElementById("vyskarolety").value.trim();
+
+    if (!sirka_wrap || !vyska_wrap) {
+      alert("Všechny informace a rozměry nejsou zadané!");
+      return;
+    }
+
+    /*Obecne pro vsechny (vyska, sirka)*/
     if (!isNaN(sirka_wrap)) {
       const sirka = parseFloat(sirka_wrap);
       if (sirka >= 25 && sirka <= 290) {
@@ -682,7 +878,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }
     }
 
-    const vyska_wrap = document.getElementById("vyskarolety").value.trim();
     if (!isNaN(vyska_wrap)) {
       const vyska = parseFloat(vyska_wrap);
       if (vyska >= 60 && vyska < 300) {
@@ -857,17 +1052,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
           /*Q -- Vyber latky zatemnovaci rolety*/
           const latka_zatemnovaci = document.createElement("p");
           const textQ = "Látka rolety (zatemňovací): ";
-          const selectedFabric = document.querySelector(
-            ".fabric-option.selected"
-          );
-          if (selectedFabric) {
-            const fabricId = selectedFabric.dataset.fabricId;
-            const fabric = fabricOptions.find((f) => f.id === fabricId);
-            if (fabric) {
-              latka_zatemnovaci.textContent = textQ + fabric.title;
+          if (h3 && (q1 || q2)) {
+            if (q1) {
+              latka_zatemnovaci.textContent =
+                textQ + "BO90 - Standardní zatemňovací látka";
+            } else if (q2) {
+              latka_zatemnovaci.textContent =
+                textQ + "BO100 - Prémiová zatemňovací látka";
             }
+            shrnuti_wrap.append(latka_zatemnovaci);
           }
-          shrnuti_wrap.append(latka_zatemnovaci);
           /*R -- Rubová látka zatemňovací rolety*/
           const rubova_latka = document.createElement("p");
           const textR = "Rubová látka rolety: ";
@@ -951,24 +1145,40 @@ document.addEventListener("DOMContentLoaded", (event) => {
           const uchyt_okna = document.createElement("p");
           const textE = "Velikost úchytu na okno: ";
           if (e1_overeni) {
-            uchyt_okna.textContent = textE + e1_real;
+            const vlastni_velikost = document
+              .getElementById("vlastni")
+              .value.trim();
+            if (vlastni_velikost) {
+              uchyt_okna.textContent = textE + vlastni_velikost + " cm";
+              shrnuti_wrap.append(uchyt_okna);
+            }
           } else if (e2) {
             uchyt_okna.textContent = textE + "1,5 cm";
+            shrnuti_wrap.append(uchyt_okna);
           } else if (e3) {
             uchyt_okna.textContent = textE + "2 cm";
+            shrnuti_wrap.append(uchyt_okna);
           } else if (e4) {
             uchyt_okna.textContent = textE + "2,5 cm";
+            shrnuti_wrap.append(uchyt_okna);
           }
-          shrnuti_wrap.append(uchyt_okna);
           /*F -- Velikost závěsného úchytu DVEŘE*/
           const uchyt_dvere = document.createElement("p");
           const textF = "Velikost úchytu na dveře: ";
           if (f1_overeni) {
-            uchyt_dvere.textContent = textF + f1_real;
+            const vlastni_velikost = document
+              .getElementById("vlastni")
+              .value.trim();
+            if (vlastni_velikost) {
+              uchyt_dvere.textContent = textF + vlastni_velikost + " cm";
+              shrnuti_wrap.append(uchyt_dvere);
+            }
           } else if (f2) {
-            uchyt_dvere.textContent = textF + "1,7";
+            uchyt_dvere.textContent = textF + "1,7 cm";
+            shrnuti_wrap.append(uchyt_dvere);
           } else if (f3) {
-            uchyt_dvere.textContent = textF + "4,3";
+            uchyt_dvere.textContent = textF + "4,3 cm";
+            shrnuti_wrap.append(uchyt_dvere);
           }
           /*(=vlastní zvolení při uchytu na dvere(f1_overeni))*/
           /*H -- Stupeň zastínění*/
@@ -1016,17 +1226,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
           /*Q -- Vyber latky zatemnovaci rolety*/
           const latka_zatemnovaci = document.createElement("p");
           const textQ = "Látka rolety (zatemňovací): ";
-          const selectedFabric = document.querySelector(
-            ".fabric-option.selected"
-          );
-          if (selectedFabric) {
-            const fabricId = selectedFabric.dataset.fabricId;
-            const fabric = fabricOptions.find((f) => f.id === fabricId);
-            if (fabric) {
-              latka_zatemnovaci.textContent = textQ + fabric.title;
+          if (h3 && (q1 || q2)) {
+            if (q1) {
+              latka_zatemnovaci.textContent =
+                textQ + "BO90 - Standardní zatemňovací látka";
+            } else if (q2) {
+              latka_zatemnovaci.textContent =
+                textQ + "BO100 - Prémiová zatemňovací látka";
             }
+            shrnuti_wrap.append(latka_zatemnovaci);
           }
-          shrnuti_wrap.append(latka_zatemnovaci);
           /*R -- Rubová látka zatemňovací rolety*/
           const rubova_latka = document.createElement("p");
           const textR = "Rubová látka rolety: ";
@@ -1068,13 +1277,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
           nadpis_garnyz.textContent = "Výpočet";
           shrnuti_wrap.append(nadpis_garnyz);
-          let prirazka_vlastni = 0;
 
-          if (e1_overeni || f1_overeni) {
-            prirazka_vlastni = 200;
-          }
-          vypocet_garnyz.textContent =
-            0.18 * sirka_real * vyska_real + prirazka_vlastni + "Kč";
+          vypocet_garnyz.textContent = 0.18 * sirka_real * vyska_real + "Kč";
           shrnuti_wrap.append(vypocet_garnyz);
 
           // Add "Poslat poptávku" button
@@ -1161,17 +1365,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
           /*Q -- Vyber latky zatemnovaci rolety*/
           const latka_zatemnovaci = document.createElement("p");
           const textQ = "Látka rolety (zatemňovací): ";
-          const selectedFabric = document.querySelector(
-            ".fabric-option.selected"
-          );
-          if (selectedFabric) {
-            const fabricId = selectedFabric.dataset.fabricId;
-            const fabric = fabricOptions.find((f) => f.id === fabricId);
-            if (fabric) {
-              latka_zatemnovaci.textContent = textQ + fabric.title;
+          if (h3 && (q1 || q2)) {
+            if (q1) {
+              latka_zatemnovaci.textContent =
+                textQ + "BO90 - Standardní zatemňovací látka";
+            } else if (q2) {
+              latka_zatemnovaci.textContent =
+                textQ + "BO100 - Prémiová zatemňovací látka";
             }
+            shrnuti_wrap.append(latka_zatemnovaci);
           }
-          shrnuti_wrap.append(latka_zatemnovaci);
           /*R -- Rubová látka zatemňovací rolety*/
           const rubova_latka = document.createElement("p");
           const textR = "Rubová látka rolety: ";
@@ -1592,6 +1795,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   // Remove duplicate function call
   // populateFabricSelection();
+
+  // Add input validation for custom size
+  const vlastniInput = document.getElementById("vlastni");
+  if (vlastniInput) {
+    vlastniInput.addEventListener("input", function (e) {
+      let value = parseFloat(this.value);
+      if (isNaN(value)) {
+        this.value = "";
+        return;
+      }
+
+      // Convert to number with 1 decimal place
+      value = Math.round(value * 10) / 10;
+
+      // Enforce min/max limits
+    });
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
