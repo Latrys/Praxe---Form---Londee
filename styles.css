@@ -241,6 +241,7 @@ main {
 }
 
 .wrapper-shrnuti.show {
+    width: auto;
     display: block;
 }
 
@@ -1433,6 +1434,10 @@ main {
 .wrapper-vyskarolety input {
     width: 80%;
     text-align: center;
+}
+
+.wrapper-shrnuti h3{
+    font-weight: 700;
 }
 
 .wrapper-shrnuti p{

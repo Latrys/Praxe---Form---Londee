@@ -1105,17 +1105,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
           const nadpis_garnyz = document.createElement("h3");
           const vypocet_garnyz = document.createElement("p");
 
-          nadpis_garnyz.textContent = "Výpočet";
+          nadpis_garnyz.textContent = "ORIENTAČNÍ CENA:";
           shrnuti_wrap.append(nadpis_garnyz);
 
-          vypocet_garnyz.textContent = 0.25 * sirka_real * vyska_real + "Kč";
+          vypocet_garnyz.textContent = 0.25 * sirka_real * vyska_real + " Kč";
           shrnuti_wrap.append(vypocet_garnyz);
 
           // Add "Poslat poptávku" button
           const sendInquiryButton = document.createElement("button");
           sendInquiryButton.className = "button-submit";
           sendInquiryButton.style.marginTop = "20px";
-          sendInquiryButton.textContent = "Poslat poptávku";
+          sendInquiryButton.textContent = "ZÍSKAT CENOVOU NABÍDKU";
 
           sendInquiryButton.addEventListener("click", () => {
             // Get all summary paragraphs
@@ -1283,17 +1283,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
           const nadpis_garnyz = document.createElement("h3");
           const vypocet_garnyz = document.createElement("p");
 
-          nadpis_garnyz.textContent = "Výpočet";
+          nadpis_garnyz.textContent = "ORIENTAČNÍ CENA:";
           shrnuti_wrap.append(nadpis_garnyz);
 
-          vypocet_garnyz.textContent = 0.18 * sirka_real * vyska_real + "Kč";
+          vypocet_garnyz.textContent = 0.18 * sirka_real * vyska_real + " Kč";
           shrnuti_wrap.append(vypocet_garnyz);
 
           // Add "Poslat poptávku" button
           const sendInquiryButton = document.createElement("button");
           sendInquiryButton.className = "button-submit";
           sendInquiryButton.style.marginTop = "20px";
-          sendInquiryButton.textContent = "Poslat poptávku";
+          sendInquiryButton.textContent = "ZÍSKAT CENOVOU NABÍDKU";
 
           sendInquiryButton.addEventListener("click", () => {
             // Get all summary paragraphs
@@ -1427,17 +1427,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
           const nadpis_garnyz = document.createElement("h3");
           const vypocet_garnyz = document.createElement("p");
 
-          nadpis_garnyz.textContent = "Výpočet";
+          nadpis_garnyz.textContent = "ORIENTAČNÍ CENA:";
           shrnuti_wrap.append(nadpis_garnyz);
 
-          vypocet_garnyz.textContent = 0.14 * sirka_real * vyska_real + "Kč";
+          vypocet_garnyz.textContent = 0.14 * sirka_real * vyska_real + " Kč";
           shrnuti_wrap.append(vypocet_garnyz);
 
           // Add "Poslat poptávku" button
           const sendInquiryButton = document.createElement("button");
           sendInquiryButton.className = "button-submit";
           sendInquiryButton.style.marginTop = "20px";
-          sendInquiryButton.textContent = "Poslat poptávku";
+          sendInquiryButton.textContent = "ZÍSKAT CENOVOU NABÍDKU";
 
           sendInquiryButton.addEventListener("click", () => {
             // Get all summary paragraphs
