@@ -952,12 +952,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
       if (checkboxi.checked) {
         a_real = checkboxi.id;
         const druh = document.createElement("p");
-        druh.textContent = "Druh: " + a_real;
+        druh.textContent = "TYP ŘÍMSKÉ ROLETY: " + a_real;
         shrnuti_wrap.append(druh);
         if (checkboxi.id == "garnyz") {
           /*B -- Místo pro garnýž*/
           const misto_garnyze = document.createElement("p");
-          const textB = "Místo kde bude garnýž: ";
+          const textB = "UMÍSTĚNÍ GARNÝŽE: ";
           if (b1) {
             misto_garnyze.textContent = textB + "Stěna";
           } else if (b2) {
@@ -1121,7 +1121,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               .join("\n");
 
             // Create mailto link with the summary content
-            const mailtoLink = `mailto:configurator@londee.cz?subject=Poptávka na roletu&body=${encodeURIComponent(
+            const mailtoLink = `mailto:konfigurator@londee.cz?subject=Poptávka na roletu&body=${encodeURIComponent(
               emailContent
             )}`;
             window.location.href = mailtoLink;

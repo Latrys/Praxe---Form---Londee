@@ -1434,3 +1434,12 @@ main {
     width: 80%;
     text-align: center;
 }
+
+.wrapper-shrnuti p{
+    margin: 5px;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+}
+
+
