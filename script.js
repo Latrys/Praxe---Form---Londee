@@ -950,18 +950,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     checkboxes_druhrolety.forEach((checkboxi) => {
       if (checkboxi.checked) {
-        a_real = checkboxi.id;
-        const druh = document.createElement("p");
-        druh.textContent = "TYP ŘÍMSKÉ ROLETY: " + a_real;
-        shrnuti_wrap.append(druh);
         if (checkboxi.id == "garnyz") {
+          /*První druh*/
+          a_real = checkboxi.id;
+          const druh = document.createElement("p");
+          druh.textContent = "TYP ŘÍMSKÉ ROLETY: Římská roleta na garnýži";
+          shrnuti_wrap.append(druh);
           /*B -- Místo pro garnýž*/
           const misto_garnyze = document.createElement("p");
           const textB = "UMÍSTĚNÍ GARNÝŽE: ";
           if (b1) {
-            misto_garnyze.textContent = textB + "Stěna";
+            misto_garnyze.textContent = textB + "Připevnění do stěny";
           } else if (b2) {
-            misto_garnyze.textContent = textB + "Strop";
+            misto_garnyze.textContent = textB + "Připevnění do stropu";
           } else {
             alert("vypln vsechny veci");
           }
@@ -969,40 +970,42 @@ document.addEventListener("DOMContentLoaded", (event) => {
           shrnuti_wrap.append(misto_garnyze);
           /*D -- Místo zatemnění*/
           const misto_zatemneni = document.createElement("p");
-          const textD = "Místo zatemnění garnyže: ";
+          const textD = "ROLETA URČENÁ PRO: ";
           if (d1) {
             misto_zatemneni.textContent = textD + "Okno";
           } else if (d2) {
-            misto_zatemneni.textContent = textD + "Balkónové dveře";
+            misto_zatemneni.textContent =
+              textD + "Balkónové dveře/Francouzské okno";
           } else if (d3) {
             misto_zatemneni.textContent = textD + "Dveře";
           }
           shrnuti_wrap.append(misto_zatemneni);
           /*H -- Stupeň zastínění*/
           const stupen_zastineni = document.createElement("p");
-          const textH = "Stupeň zastínění rolety: ";
+          const textH = "STUPEŇ ZASTÍNĚNÍ: ";
           if (h1) {
             stupen_zastineni.textContent = textH + "Poloprůhledná";
           } else if (h2) {
-            stupen_zastineni.textContent = textH + "Poloprůsvitná";
+            stupen_zastineni.textContent =
+              textH + "Poloprůsvitná/Částečně zatemňovací";
           } else if (h3) {
-            stupen_zastineni.textContent = textH + "Zatemňovácí";
+            stupen_zastineni.textContent = textH + "Zatemňovací";
           }
           shrnuti_wrap.append(stupen_zastineni);
           /*I -- Design Garnýže*/
           const design_garnyze = document.createElement("p");
-          const textI = "Design garnýže: ";
+          const textI = "DESIGN GARNÝŽE: ";
           if (i1) {
             design_garnyze.textContent = textI + "Čalouněná";
           } else if (i2) {
-            design_garnyze.textContent = textI + "Částečně Čalouněná";
+            design_garnyze.textContent = textI + "Částečně čalouněná";
           } else if (i3) {
             design_garnyze.textContent = textI + "Roleta z jednoho kusu";
           }
           shrnuti_wrap.append(design_garnyze);
           /*K -- Výběr látky*/
           const vyber_latky = document.createElement("p");
-          const textK = "Vybraná látka: ";
+          const textK = "LÁTKA ČALOUNĚNÍ GARNÝŽE: ";
           if (k1) {
             vyber_latky.textContent = textK + "BlackOut 90";
           } else if (k2) {
@@ -1011,36 +1014,37 @@ document.addEventListener("DOMContentLoaded", (event) => {
           shrnuti_wrap.append(vyber_latky);
           /*L -- Typ řetízku*/
           const typ_retizku = document.createElement("p");
-          const textL = "Vybraný typ řetízku: ";
+          const textL = "TYP ŘETÍZKU OVLÁDÁNÍ ROLETY: ";
           if (l1) {
-            typ_retizku.textContent = textL + "Plast Bílý";
+            typ_retizku.textContent = textL + "Plast bílý";
           } else if (l2) {
             typ_retizku.textContent = textL + "Kov lesklý";
           }
           shrnuti_wrap.append(typ_retizku);
           /*M -- Typ rolety*/
           const typ_rolety = document.createElement("p");
-          const textM = "Vybraný typ rolety: ";
+          const textM = "DESIGN ROLETY: ";
           if (m1) {
-            typ_rolety.textContent = textM + "Šítá s tunýlky";
+            typ_rolety.textContent =
+              textM + "Šítá roleta s tunýlky s výztuhami";
           } else if (m2) {
-            typ_rolety.textContent = textM + "Šitá bez výstuh";
+            typ_rolety.textContent = textM + "Šitá roleta bez výstuh";
           } else if (m3) {
-            typ_rolety.textContent = textM + "Sežehléná";
+            typ_rolety.textContent = textM + "Sežehléná roleta";
           }
           shrnuti_wrap.append(typ_rolety);
           /*O -- Vyber latky polopruhledne rolety*/
           const latka_polopruhledna = document.createElement("p");
-          const textO = "Látka rolety (poloprůhledné): ";
+          const textO = "LÁTKA POLOPRŮHLEDNÉ ROLETY: ";
           if (o1) {
-            latka_polopruhledna.textContent = textO + "Voal Šedá";
+            latka_polopruhledna.textContent = textO + "Voal šedá";
           } else if (o2) {
-            latka_polopruhledna.textContent = textO + "Voal Béžová";
+            latka_polopruhledna.textContent = textO + "Voal béžová";
           }
           shrnuti_wrap.append(latka_polopruhledna);
           /*P -- Vyber latky poloprusvitne rolety*/
           const latka_poloprusvitna = document.createElement("p");
-          const textP = "Látka rolety (poloprůsvitná): ";
+          const textP = "LÁTKA POLOPRŮSVITNÉ ROLETY: ";
           if (p1) {
             latka_poloprusvitna.textContent = textP + "Hnědá";
           } else if (p2) {
@@ -1051,7 +1055,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           shrnuti_wrap.append(latka_poloprusvitna);
           /*Q -- Vyber latky zatemnovaci rolety*/
           const latka_zatemnovaci = document.createElement("p");
-          const textQ = "Látka rolety (zatemňovací): ";
+          const textQ = "LÁTKA ZATEMŇOVACÍ ROLETY: ";
           if (h3 && (q1 || q2)) {
             if (q1) {
               latka_zatemnovaci.textContent =
@@ -1064,7 +1068,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           }
           /*R -- Rubová látka zatemňovací rolety*/
           const rubova_latka = document.createElement("p");
-          const textR = "Rubová látka rolety: ";
+          const textR = "RUBOVÁ LÁTKA SEŽEHLENÉ ZATEMŇOVACÍ ROLETY: ";
           if (r1) {
             rubova_latka.textContent = textR + "Bílo-šedá BlackOut90";
           } else if (r2) {
@@ -1077,7 +1081,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           shrnuti_wrap.append(rubova_latka);
           /*S -- Lícová látka zatemňovací rolety*/
           const licova_latka = document.createElement("p");
-          const textS = "Lícová látka rolety: ";
+          const textS = "LÍCOVÁ LÁTKA SEŽEHLENÉ ZATEMŇOVACÍ ROLETY: ";
           if (s1) {
             licova_latka.textContent = textS + "Hnědá";
           } else if (s2) {
@@ -1089,11 +1093,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
           /*Vyska sirka*/
           const sirka_p = document.createElement("p");
-          sirka_p.textContent = "Šířka rolety: " + sirka_real + " cm";
+          sirka_p.textContent = "ŠÍŘKA ROLETY: " + sirka_real + " cm";
           shrnuti_wrap.append(sirka_p);
 
           const vyska_p = document.createElement("p");
-          vyska_p.textContent = "Výška rolety: " + vyska_real + " cm";
+          vyska_p.textContent = "VÝŠKA ROLETY: " + vyska_real + " cm";
           shrnuti_wrap.append(vyska_p);
 
           /*Výpočet*/
@@ -1129,21 +1133,25 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
           shrnuti_wrap.append(sendInquiryButton);
         } else if (checkboxi.id === "nasazeni") {
+          /*První druh*/
+          const druh = document.createElement("p");
+          druh.textContent = "TYP ŘÍMSKÉ ROLETY: Nasazovací římská roleta";
+          shrnuti_wrap.append(druh);
           /*D -- Místo zatemnění nasazení*/
           const misto_zatemneni_nasazeni = document.createElement("p");
-          const textD_nasazeni = "Místo zatemnění: ";
+          const textD_nasazeni = "ROLETA URČENÁ PRO: ";
           if (d1_nasazeni) {
             misto_zatemneni_nasazeni.textContent = textD_nasazeni + "Okno";
           } else if (d2_nasazeni) {
             misto_zatemneni_nasazeni.textContent =
-              textD_nasazeni + "Bálkonové Dveře";
+              textD_nasazeni + "Balkónové dveře/Francouzské okno";
           } else if (d3_nasazeni) {
             misto_zatemneni_nasazeni.textContent = textD_nasazeni + "Dveře";
           }
           shrnuti_wrap.append(misto_zatemneni_nasazeni);
           /*E -- Velikost závěsného úchytu OKNA*/
           const uchyt_okna = document.createElement("p");
-          const textE = "Velikost úchytu na okno: ";
+          const textE = "VELIKOST ÚCHYTU NA OKNO: ";
           if (e1_overeni) {
             const vlastni_velikost = document
               .getElementById("vlastni")
@@ -1164,7 +1172,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           }
           /*F -- Velikost závěsného úchytu DVEŘE*/
           const uchyt_dvere = document.createElement("p");
-          const textF = "Velikost úchytu na dveře: ";
+          const textF = "VELIKOST ÚCHYTU NA DVEŘE: ";
           if (f1_overeni) {
             const vlastni_velikost = document
               .getElementById("vlastni")
@@ -1180,41 +1188,42 @@ document.addEventListener("DOMContentLoaded", (event) => {
             uchyt_dvere.textContent = textF + "4,3 cm";
             shrnuti_wrap.append(uchyt_dvere);
           }
-          /*(=vlastní zvolení při uchytu na dvere(f1_overeni))*/
           /*H -- Stupeň zastínění*/
           const stupen_zastineni = document.createElement("p");
-          const textH = "Stupeň zastínění rolety: ";
+          const textH = "STUPEŇ ZASTÍNĚNÍ: ";
           if (h1) {
             stupen_zastineni.textContent = textH + "Poloprůhledná";
           } else if (h2) {
-            stupen_zastineni.textContent = textH + "Poloprůsvitná";
+            stupen_zastineni.textContent =
+              textH + "Poloprůsvitná/Částečně zatemňovací";
           } else if (h3) {
-            stupen_zastineni.textContent = textH + "Zatemňovácí";
+            stupen_zastineni.textContent = textH + "Zatemňovací";
           }
           shrnuti_wrap.append(stupen_zastineni);
           /*M -- Typ rolety*/
           const typ_rolety = document.createElement("p");
-          const textM = "Vybraný typ rolety: ";
+          const textM = "DESIGN ROLETY: ";
           if (m1) {
-            typ_rolety.textContent = textM + "Šítá s tunýlky";
+            typ_rolety.textContent =
+              textM + "Šítá roleta s tunýlky s výztuhami";
           } else if (m2) {
-            typ_rolety.textContent = textM + "Šitá bez výstuh";
+            typ_rolety.textContent = textM + "Šitá roleta bez výstuh";
           } else if (m3) {
-            typ_rolety.textContent = textM + "Sežehléná";
+            typ_rolety.textContent = textM + "Sežehléná roleta";
           }
           shrnuti_wrap.append(typ_rolety);
           /*O -- Vyber latky polopruhledne rolety*/
           const latka_polopruhledna = document.createElement("p");
-          const textO = "Látka rolety (poloprůhledné): ";
+          const textO = "LÁTKA POLOPRŮHLEDNÉ ROLETY: ";
           if (o1) {
-            latka_polopruhledna.textContent = textO + "Voal Šedá";
+            latka_polopruhledna.textContent = textO + "Voal šedá";
           } else if (o2) {
-            latka_polopruhledna.textContent = textO + "Voal Béžová";
+            latka_polopruhledna.textContent = textO + "Voal béžová";
           }
           shrnuti_wrap.append(latka_polopruhledna);
           /*P -- Vyber latky poloprusvitne rolety*/
           const latka_poloprusvitna = document.createElement("p");
-          const textP = "Látka rolety (poloprůsvitná): ";
+          const textP = "LÁTKA POLOPRŮSVITNÉ ROLETY: ";
           if (p1) {
             latka_poloprusvitna.textContent = textP + "Hnědá";
           } else if (p2) {
@@ -1225,7 +1234,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           shrnuti_wrap.append(latka_poloprusvitna);
           /*Q -- Vyber latky zatemnovaci rolety*/
           const latka_zatemnovaci = document.createElement("p");
-          const textQ = "Látka rolety (zatemňovací): ";
+          const textQ = "LÁTKA ZATEMŇOVACÍ ROLETY: ";
           if (h3 && (q1 || q2)) {
             if (q1) {
               latka_zatemnovaci.textContent =
@@ -1238,7 +1247,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           }
           /*R -- Rubová látka zatemňovací rolety*/
           const rubova_latka = document.createElement("p");
-          const textR = "Rubová látka rolety: ";
+          const textR = "RUBOVÁ LÁTKA SEŽEHLENÉ ZATEMŇOVACÍ ROLETY: ";
           if (r1) {
             rubova_latka.textContent = textR + "Bílo-šedá BlackOut90";
           } else if (r2) {
@@ -1251,7 +1260,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           shrnuti_wrap.append(rubova_latka);
           /*S -- Lícová látka zatemňovací rolety*/
           const licova_latka = document.createElement("p");
-          const textS = "Lícová látka rolety: ";
+          const textS = "LÍCOVÁ LÁTKA SEŽEHLENÉ ZATEMŇOVACÍ ROLETY: ";
           if (s1) {
             licova_latka.textContent = textS + "Hnědá";
           } else if (s2) {
@@ -1263,15 +1272,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
           /*Vyska sirka*/
           const sirka_p = document.createElement("p");
-          sirka_p.textContent = "Šířka rolety: " + sirka_real + " cm";
+          sirka_p.textContent = "ŠÍŘKA ROLETY: " + sirka_real + " cm";
           shrnuti_wrap.append(sirka_p);
 
           const vyska_p = document.createElement("p");
-          vyska_p.textContent = "Výška rolety: " + vyska_real + " cm";
+          vyska_p.textContent = "VÝŠKA ROLETY: " + vyska_real + " cm";
           shrnuti_wrap.append(vyska_p);
 
           /*Výpočet*/
-
           const nadpis_garnyz = document.createElement("h3");
           const vypocet_garnyz = document.createElement("p");
 
@@ -1295,7 +1303,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               .join("\n");
 
             // Create mailto link with the summary content
-            const mailtoLink = `mailto:configurator@londee.cz?subject=Poptávka na roletu&body=${encodeURIComponent(
+            const mailtoLink = `mailto:konfigurator@londee.cz?subject=Poptávka na roletu&body=${encodeURIComponent(
               emailContent
             )}`;
             window.location.href = mailtoLink;
@@ -1303,57 +1311,63 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
           shrnuti_wrap.append(sendInquiryButton);
         } else if (checkboxi.id === "tunylek") {
+          /*První druh*/
+          const druh = document.createElement("p");
+          druh.textContent = "TYP ŘÍMSKÉ ROLETY: Tunýlek";
+          shrnuti_wrap.append(druh);
           /*Prumer tyce*/
           const prumer_tyce = document.createElement("p");
           prumer_tyce.textContent =
-            "Průměr tyče pro navlečení rolety: " + c1_real;
+            "PRŮMĚR TYČE PRO NAVLECENÍ ROLETY: " + c1_real + " cm";
           shrnuti_wrap.append(prumer_tyce);
           /*D -- Misto nasazeni stene jako nasazeni*/
           const misto_zatemneni_nasazeni = document.createElement("p");
-          const textD_nasazeni = "Místo zatemnění: ";
+          const textD_nasazeni = "ROLETA URČENÁ PRO: ";
           if (d1_nasazeni) {
             misto_zatemneni_nasazeni.textContent = textD_nasazeni + "Okno";
           } else if (d2_nasazeni) {
             misto_zatemneni_nasazeni.textContent =
-              textD_nasazeni + "Bálkonové Dveře";
+              textD_nasazeni + "Balkónové dveře/Francouzské okno";
           } else if (d3_nasazeni) {
             misto_zatemneni_nasazeni.textContent = textD_nasazeni + "Dveře";
           }
           shrnuti_wrap.append(misto_zatemneni_nasazeni);
           /*H -- Stupeň zastínění*/
           const stupen_zastineni = document.createElement("p");
-          const textH = "Stupeň zastínění rolety: ";
+          const textH = "STUPEŇ ZASTÍNĚNÍ: ";
           if (h1) {
             stupen_zastineni.textContent = textH + "Poloprůhledná";
           } else if (h2) {
-            stupen_zastineni.textContent = textH + "Poloprůsvitná";
+            stupen_zastineni.textContent =
+              textH + "Poloprůsvitná/Částečně zatemňovací";
           } else if (h3) {
-            stupen_zastineni.textContent = textH + "Zatemňovácí";
+            stupen_zastineni.textContent = textH + "Zatemňovací";
           }
           shrnuti_wrap.append(stupen_zastineni);
           /*M -- Typ rolety*/
           const typ_rolety = document.createElement("p");
-          const textM = "Vybraný typ rolety: ";
+          const textM = "DESIGN ROLETY: ";
           if (m1) {
-            typ_rolety.textContent = textM + "Šítá s tunýlky";
+            typ_rolety.textContent =
+              textM + "Šítá roleta s tunýlky s výztuhami";
           } else if (m2) {
-            typ_rolety.textContent = textM + "Šitá bez výstuh";
+            typ_rolety.textContent = textM + "Šitá roleta bez výstuh";
           } else if (m3) {
-            typ_rolety.textContent = textM + "Sežehléná";
+            typ_rolety.textContent = textM + "Sežehléná roleta";
           }
           shrnuti_wrap.append(typ_rolety);
           /*O -- Vyber latky polopruhledne rolety*/
           const latka_polopruhledna = document.createElement("p");
-          const textO = "Látka rolety (poloprůhledné): ";
+          const textO = "LÁTKA POLOPRŮHLEDNÉ ROLETY: ";
           if (o1) {
-            latka_polopruhledna.textContent = textO + "Voal Šedá";
+            latka_polopruhledna.textContent = textO + "Voal šedá";
           } else if (o2) {
-            latka_polopruhledna.textContent = textO + "Voal Béžová";
+            latka_polopruhledna.textContent = textO + "Voal béžová";
           }
           shrnuti_wrap.append(latka_polopruhledna);
           /*P -- Vyber latky poloprusvitne rolety*/
           const latka_poloprusvitna = document.createElement("p");
-          const textP = "Látka rolety (poloprůsvitná): ";
+          const textP = "LÁTKA POLOPRŮSVITNÉ ROLETY: ";
           if (p1) {
             latka_poloprusvitna.textContent = textP + "Hnědá";
           } else if (p2) {
@@ -1364,7 +1378,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           shrnuti_wrap.append(latka_poloprusvitna);
           /*Q -- Vyber latky zatemnovaci rolety*/
           const latka_zatemnovaci = document.createElement("p");
-          const textQ = "Látka rolety (zatemňovací): ";
+          const textQ = "LÁTKA ZATEMŇOVACÍ ROLETY: ";
           if (h3 && (q1 || q2)) {
             if (q1) {
               latka_zatemnovaci.textContent =
@@ -1377,7 +1391,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           }
           /*R -- Rubová látka zatemňovací rolety*/
           const rubova_latka = document.createElement("p");
-          const textR = "Rubová látka rolety: ";
+          const textR = "RUBOVÁ LÁTKA SEŽEHLENÉ ZATEMŇOVACÍ ROLETY: ";
           if (r1) {
             rubova_latka.textContent = textR + "Bílo-šedá BlackOut90";
           } else if (r2) {
@@ -1390,7 +1404,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
           shrnuti_wrap.append(rubova_latka);
           /*S -- Lícová látka zatemňovací rolety*/
           const licova_latka = document.createElement("p");
-          const textS = "Lícová látka rolety: ";
+          const textS = "LÍCOVÁ LÁTKA SEŽEHLENÉ ZATEMŇOVACÍ ROLETY: ";
           if (s1) {
             licova_latka.textContent = textS + "Hnědá";
           } else if (s2) {
@@ -1402,15 +1416,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
           /*Vyska sirka*/
           const sirka_p = document.createElement("p");
-          sirka_p.textContent = "Šířka rolety: " + sirka_real + " cm";
+          sirka_p.textContent = "ŠÍŘKA ROLETY: " + sirka_real + " cm";
           shrnuti_wrap.append(sirka_p);
 
           const vyska_p = document.createElement("p");
-          vyska_p.textContent = "Výška rolety: " + vyska_real + " cm";
+          vyska_p.textContent = "VÝŠKA ROLETY: " + vyska_real + " cm";
           shrnuti_wrap.append(vyska_p);
 
           /*Výpočet*/
-
           const nadpis_garnyz = document.createElement("h3");
           const vypocet_garnyz = document.createElement("p");
 
@@ -1434,7 +1447,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
               .join("\n");
 
             // Create mailto link with the summary content
-            const mailtoLink = `mailto:configurator@londee.cz?subject=Poptávka na roletu&body=${encodeURIComponent(
+            const mailtoLink = `mailto:konfigurator@londee.cz?subject=Poptávka na roletu&body=${encodeURIComponent(
               emailContent
             )}`;
             window.location.href = mailtoLink;
