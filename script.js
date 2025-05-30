@@ -1108,7 +1108,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
           nadpis_garnyz.textContent = "ORIENTAČNÍ CENA:";
           shrnuti_wrap.append(nadpis_garnyz);
 
-          vypocet_garnyz.textContent = 0.25 * sirka_real * vyska_real + " Kč";
+          let basePrice = 0.25 * sirka_real * vyska_real;
+          basePrice *= calculateTotalPriceMultiplier();
+          vypocet_garnyz.textContent = basePrice + " Kč";
           shrnuti_wrap.append(vypocet_garnyz);
 
           // Add "Poslat poptávku" button
@@ -1286,7 +1288,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
           nadpis_garnyz.textContent = "ORIENTAČNÍ CENA:";
           shrnuti_wrap.append(nadpis_garnyz);
 
-          vypocet_garnyz.textContent = 0.18 * sirka_real * vyska_real + " Kč";
+          let basePrice = 0.18 * sirka_real * vyska_real;
+          basePrice *= calculateTotalPriceMultiplier();
+          vypocet_garnyz.textContent = basePrice + " Kč";
           shrnuti_wrap.append(vypocet_garnyz);
 
           // Add "Poslat poptávku" button
@@ -1430,7 +1434,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
           nadpis_garnyz.textContent = "ORIENTAČNÍ CENA:";
           shrnuti_wrap.append(nadpis_garnyz);
 
-          vypocet_garnyz.textContent = 0.14 * sirka_real * vyska_real + " Kč";
+          let basePrice = 0.14 * sirka_real * vyska_real;
+          basePrice *= calculateTotalPriceMultiplier();
+          vypocet_garnyz.textContent = basePrice + " Kč";
           shrnuti_wrap.append(vypocet_garnyz);
 
           // Add "Poslat poptávku" button
@@ -1502,6 +1508,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_1.jpg",
       price: "150 Kč/m²",
       type: "calouneni",
+      price_tier: 1,
     },
     {
       id: "bo100-calouneni",
@@ -1511,6 +1518,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_2.jpg",
       price: "200 Kč/m²",
       type: "calouneni",
+      price_tier: 2,
     },
     // Rubová látka (N)
     {
@@ -1521,6 +1529,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_1.jpg",
       price: "150 Kč/m²",
       type: "rubova",
+      price_tier: 1,
     },
     {
       id: "rubova-svetleseda-bo90",
@@ -1530,6 +1539,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_2.jpg",
       price: "150 Kč/m²",
       type: "rubova",
+      price_tier: 1,
     },
     {
       id: "rubova-seda-bo90",
@@ -1539,6 +1549,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_1.jpg",
       price: "150 Kč/m²",
       type: "rubova",
+      price_tier: 2,
     },
     {
       id: "rubova-cernoseda-bo90",
@@ -1548,6 +1559,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_2.jpg",
       price: "150 Kč/m²",
       type: "rubova",
+      price_tier: 3,
     },
     // Lícová látka (P)
     {
@@ -1558,6 +1570,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_1.jpg",
       price: "180 Kč/m²",
       type: "licova",
+      price_tier: 2,
     },
     {
       id: "seda-lic",
@@ -1567,6 +1580,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_2.jpg",
       price: "180 Kč/m²",
       type: "licova",
+      price_tier: 2,
     },
     {
       id: "bezova-lic",
@@ -1576,6 +1590,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_1.jpg",
       price: "180 Kč/m²",
       type: "licova",
+      price_tier: 3,
     },
     // Poloprůhledná rolety (O)
     {
@@ -1586,6 +1601,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_2.jpg",
       price: "120 Kč/m²",
       type: "polopruhledna",
+      price_tier: 1,
     },
     {
       id: "voalbezova",
@@ -1595,6 +1611,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_1.jpg",
       price: "120 Kč/m²",
       type: "polopruhledna",
+      price_tier: 1,
     },
     // Poloprůsvitná rolety (R)
     {
@@ -1605,6 +1622,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_2.jpg",
       price: "160 Kč/m²",
       type: "poloprusvitna",
+      price_tier: 2,
     },
     {
       id: "seda",
@@ -1614,6 +1632,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_1.jpg",
       price: "160 Kč/m²",
       type: "poloprusvitna",
+      price_tier: 2,
     },
     {
       id: "bezova",
@@ -1623,6 +1642,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_2.jpg",
       price: "160 Kč/m²",
       type: "poloprusvitna",
+      price_tier: 3,
     },
     // Zatemňovací rolety (Q)
     {
@@ -1633,6 +1653,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_1.jpg",
       price: "150 Kč/m²",
       type: "zatemnovaci",
+      price_tier: 2,
     },
     {
       id: "bo100-zatemnovaci",
@@ -1642,8 +1663,73 @@ document.addEventListener("DOMContentLoaded", (event) => {
       image: "content/latky_test_2.jpg",
       price: "200 Kč/m²",
       type: "zatemnovaci",
+      price_tier: 3,
     },
   ];
+
+  // Price tier multipliers
+  const priceTierMultipliers = {
+    1: 1.0,
+    2: 1.3,
+    3: 1.5,
+    4: 2.0,
+    5: 2.3,
+  };
+
+  // Function to get fabric price multiplier
+  function getFabricPriceMultiplier(fabricId) {
+    const fabric = fabricOptions.find((f) => f.id === fabricId);
+    return fabric ? priceTierMultipliers[fabric.price_tier] : 1;
+  }
+
+  // Function to calculate total price multiplier
+  function calculateTotalPriceMultiplier() {
+    let multiplier = 1;
+
+    // Add sežehlená multiplier if selected
+    if (m3) {
+      multiplier *= 1.4;
+    }
+
+    // Add fabric multipliers
+    if (k1 || k2) {
+      multiplier *= getFabricPriceMultiplier(
+        k1 ? "bo90-calouneni" : "bo100-calouneni"
+      );
+    }
+    if (r1 || r2 || r3 || r4) {
+      let rubovaId = "";
+      if (r1) rubovaId = "rubova-biloseda-bo90";
+      else if (r2) rubovaId = "rubova-svetleseda-bo90";
+      else if (r3) rubovaId = "rubova-seda-bo90";
+      else if (r4) rubovaId = "rubova-cernoseda-bo90";
+      multiplier *= getFabricPriceMultiplier(rubovaId);
+    }
+    if (s1 || s2 || s3) {
+      let licovaId = "";
+      if (s1) licovaId = "hneda-lic";
+      else if (s2) licovaId = "seda-lic";
+      else if (s3) licovaId = "bezova-lic";
+      multiplier *= getFabricPriceMultiplier(licovaId);
+    }
+    if (o1 || o2) {
+      multiplier *= getFabricPriceMultiplier(o1 ? "voalseda" : "voalbezova");
+    }
+    if (p1 || p2 || p3) {
+      let poloprusvitnaId = "";
+      if (p1) poloprusvitnaId = "hneda";
+      else if (p2) poloprusvitnaId = "seda";
+      else if (p3) poloprusvitnaId = "bezova";
+      multiplier *= getFabricPriceMultiplier(poloprusvitnaId);
+    }
+    if (q1 || q2) {
+      multiplier *= getFabricPriceMultiplier(
+        q1 ? "bo90-zatemnovaci" : "bo100-zatemnovaci"
+      );
+    }
+
+    return multiplier;
+  }
 
   // Function to create fabric option element
   function createFabricOption(fabric) {
